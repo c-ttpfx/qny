@@ -8,6 +8,7 @@ class QnyApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("你好");
     }
 
 }
