@@ -11,8 +11,14 @@
     <groupId>com.ttpfx</groupId>
     <artifactId>qny</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>qny</name>
     <description>qny</description>
+    <modules>
+        <module>qny_common</module>
+        <module>qny_video</module>
+        <module>qny_user</module>
+    </modules>
     <properties>
         <java.version>1.8</java.version>
     </properties>
