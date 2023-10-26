@@ -35,4 +35,9 @@ build/
 .vscode/
 
 ### Mac OS ###
-.DS_Store
+.DS_Store!/src/main/resources/segment/
+
+!/src/main/resources/video/
+!/src/main/resources/segment/
+
+
