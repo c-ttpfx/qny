@@ -1,2 +1,16 @@
 server:
   port: 10002
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.43.172.220:3306/qny?serverTimezone=Asia/Shanghai
+    username: root
+    password: centos7.6@LiuHuan
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启SQL语句打印
+
+

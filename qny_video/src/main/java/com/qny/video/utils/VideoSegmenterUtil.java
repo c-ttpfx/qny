@@ -46,6 +46,6 @@ public class VideoSegmenterUtil {
     }
 
     public static void main(String[] args) {
-        segmentVideo("D:\\代码\\JAVA代码\\qny\\qny_video\\src\\main\\resources\\video\\英语.mp4","D:\\代码\\JAVA代码\\qny\\qny_video\\src\\main\\resources\\segment",5);
+        segmentVideo("D:\\代码\\JAVA代码\\qny\\qny_video\\src\\main\\resources\\video\\2.mp4","D:\\代码\\JAVA代码\\qny\\qny_video\\src\\main\\resources\\segment2",2);
     }
 }
