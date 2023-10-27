@@ -7,6 +7,10 @@ spring:
     url: jdbc:mysql://101.43.172.220:3306/qny?serverTimezone=Asia/Shanghai
     username: root
     password: centos7.6@LiuHuan
+  redis:
+    host: 101.43.172.220
+    port: 6379
+    password: 123456
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml

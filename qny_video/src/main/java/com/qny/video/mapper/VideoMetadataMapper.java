@@ -1,7 +1,7 @@
 package com.qny.video.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.qny.video.domain.entity.VideoMetadata;
+import com.qny.video.domain.model.VideoMetadataModel;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -9,6 +9,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2023/10/27
  */
 @Mapper
-public interface VideoMetadataMapper extends BaseMapper<VideoMetadata> {
+public interface VideoMetadataMapper extends BaseMapper<VideoMetadataModel> {
 
 }

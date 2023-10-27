@@ -1,11 +1,11 @@
-package com.qny.video.domain.entity;
+package com.qny.video.domain.model;
 
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @author ttpfx
@@ -13,13 +13,13 @@ import java.time.LocalDateTime;
  */
 @Data
 @TableName("video_metadata")
-public class VideoMetadata {
-    @TableId
+public class VideoMetadataModel {
+    @TableId(type = IdType.AUTO)
     private Long id;  // 主键ID
     private String title;  // 视频标题
     private String description;  // 视频描述
-    private String uploader;  // 上传者
-    private LocalDateTime uploadTime;  // 上传时间
+    private String uploaderId;  // 上传者ID
+    private Date uploadTime;  // 上传时间
     private Long duration;  // 视频时长
     private String format;  // 视频格式（例如：MP4, AVI, MKV等）
     private String resolution;  // 视频分辨率（例如：1920x1080）

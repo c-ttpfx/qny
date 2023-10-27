@@ -1,13 +1,15 @@
-package com.qny.video.domain.entity;
+package com.qny.video.domain.model;
 
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * @author ttpfx
  * @since 2023/10/27
  */
 @Data
-public class User {
+public class User implements Serializable {
 
     private Long id;
 

@@ -1,18 +1,13 @@
 package com.qny.video.utils;
 
 import com.qiniu.common.QiniuException;
-import com.qny.video.domain.entity.VideoMetadata;
+import com.qny.video.domain.model.VideoMetadataModel;
 import com.qny.video.service.VideoMetadataService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.EnumSet;
-import java.util.List;
+
 
 /**
  * @author ttpfx
@@ -31,7 +26,7 @@ public class QNYUtilTest {
             String filePath = path.toString();
             try {
                 String s = QNYStoreUtil.uploadAndTranscodeVideo(filePath);
-                VideoMetadata videoMetadata = new VideoMetadata();
+                VideoMetadataModel videoMetadata = new VideoMetadataModel();
                 videoMetadata.setFilePath(prefix+s);
                 videoMetadataService.save(videoMetadata);
             } catch (QiniuException e) {
