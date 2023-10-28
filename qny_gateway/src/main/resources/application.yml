@@ -1,5 +1,5 @@
 server:
-  port: 10003
+  port: 20000
 spring:
   main:
     web-application-type: reactive
@@ -7,17 +7,6 @@ spring:
     name: qny_gateway
   cloud:
     gateway:
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOrigins: "*"   #跨域处理 允许所有的域
-            allowedHeaders: "*"
-            allowCredentials: true
-            allowedMethods: # 支持的方法
-              - GET
-              - POST
-              - PUT
-              - DELETE
       routes: # 路由设置
         - id: user_routh01 #路由的 ID，程序员自己写,要求唯一
           # 服务地址

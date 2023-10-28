@@ -11,11 +11,13 @@ import java.io.Serializable;
 @Data
 public class User implements Serializable {
 
-    private Long id;
+    private Long userId;
 
     private String name;
 
     private String age;
 
     private String gender;
+
+    private String password;
 }
