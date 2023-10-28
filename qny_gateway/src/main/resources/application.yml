@@ -1,0 +1,45 @@
+server:
+  port: 10003
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: qny_gateway
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"   #跨域处理 允许所有的域
+            allowedHeaders: "*"
+            allowCredentials: true
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      routes: # 路由设置
+        - id: user_routh01 #路由的 ID，程序员自己写,要求唯一
+          # 服务地址
+          uri: http://localhost:10001
+          predicates: #断言,路径相匹配的进行路由
+            - Path=/user/**
+        - id: video_routh01
+          uri: http://localhost:10002
+          predicates:
+            - Path=/video/**
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.43.172.220:3306/qny?serverTimezone=Asia/Shanghai
+    username: root
+    password: centos7.6@LiuHuan
+  redis:
+    host: 101.43.172.220
+    port: 6379
+    password: 123456
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启SQL语句打印

@@ -7,6 +7,7 @@ import com.qny.user.utils.JwtUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Knight
@@ -19,12 +20,17 @@ public class UserController {
 
     @PassToken
     @PostMapping("/login")
-    public String login(@RequestBody User user) {
-        HashMap<String, String> map = new HashMap<>();
-        String token = JwtUtil.getToken(user);
-        map.put("token", token);
-        map.put("user", user.getUsername());
-        return map.toString();
+    public Map<String, Object> login(@RequestBody User user) {
+        Map<String, Object> map = new HashMap<>();
+        // TODO 将数据库加密密码与用户明文密码做对比,这里简单比较
+        if ("admin".equals(user.getUsername()) && "123456".equals(user.getPassword())) {
+            // 生成JWT令牌
+            String token = JwtUtil.getToken(user);
+            map.put("token", token);
+            return map;
+        }
+        map.put("error", "账号密码有误");
+        return map;
     }
 
     @UserLoginToken

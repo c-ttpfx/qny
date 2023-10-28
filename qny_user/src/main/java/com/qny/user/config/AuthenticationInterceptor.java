@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 /**
  * @author Knight
  * @since 2023/10/26
- * 拦截器: 获取token并验证token
+ * 拦截器: 获取 token 并验证 token
  **/
 
 public class AuthenticationInterceptor implements HandlerInterceptor {

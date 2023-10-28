@@ -31,14 +31,14 @@ public class Result implements Serializable {
     }
     /**
      * 成功
-     * @return 200状态码，附带data
+     * @return 200 状态码，附带data
      */
     public static Result ok(Object data){
         return new Result(200,"success",data);
     }
     /**
      * 失败
-     * @return 500状态码
+     * @return 500 状态码
      */
     public static Result fail(){
         return new Result(500,"fail",null);
