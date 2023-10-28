@@ -19,11 +19,5 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedMethods("*") // 允许的 HTTP 方法
                 .maxAge(3600); // 预检请求的有效期，单位为秒
     }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/");
-    }
 }
 

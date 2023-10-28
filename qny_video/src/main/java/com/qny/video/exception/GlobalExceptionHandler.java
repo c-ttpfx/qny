@@ -1,6 +1,7 @@
 package com.qny.video.exception;
 
 import com.qny.video.domain.entity.Result;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -45,5 +46,15 @@ public class GlobalExceptionHandler {
     public Result exception(Exception e, HttpServletRequest request){
         e.printStackTrace();
         return Result.fail(555,"系统异常，请联系管理员");
+    }
+    /**
+     * 请求缺少字段异常
+     * @return Result
+     */
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    @ResponseBody
+    public Result MissingServletRequestParameterException(Exception e, HttpServletRequest request){
+        e.printStackTrace();
+        return Result.fail(556,"请求缺少字段");
     }
 }

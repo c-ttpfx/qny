@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +14,9 @@ import java.util.Date;
  */
 @Data
 @TableName("video_metadata")
-public class VideoMetadataModel {
+public class VideoMetadataModel implements Serializable {
+    private static final long serialVersionUID = 1234567890L;
+
     @TableId(type = IdType.AUTO)
     private Long id;  // 主键ID
     private String title;  // 视频标题
