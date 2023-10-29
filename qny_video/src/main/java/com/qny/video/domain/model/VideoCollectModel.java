@@ -19,4 +19,6 @@ public class VideoCollectModel implements Serializable {
     private Long videoId;
     // 用户id
     private Long userId;
+    // 收藏时间
+    private Long collectTime;
 }

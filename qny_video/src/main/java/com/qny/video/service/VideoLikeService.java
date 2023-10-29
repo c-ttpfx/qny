@@ -23,7 +23,7 @@ public interface VideoLikeService extends IService<VideoLikeModel> {
      * @param userId 用户id
      * @return 是否成功标志
      */
-    boolean addVideoLikeCount(Long videoId,Long userId);
+    Boolean addVideoLikeCount(Long videoId,Long userId);
 
     /**
      * 取消点赞
@@ -31,7 +31,7 @@ public interface VideoLikeService extends IService<VideoLikeModel> {
      * @param userId 用户id
      * @return 是否成功标志
      */
-    boolean subVideoLikeCount(Long videoId, Long userId);
+    Boolean subVideoLikeCount(Long videoId, Long userId);
 
     /**
      * 用户是否在对应视频下点赞
@@ -39,5 +39,5 @@ public interface VideoLikeService extends IService<VideoLikeModel> {
      * @param userId 用户id
      * @return true/false
      */
-    boolean isLike(Long videoId, Long userId);
+    Boolean isLike(Long videoId, Long userId);
 }

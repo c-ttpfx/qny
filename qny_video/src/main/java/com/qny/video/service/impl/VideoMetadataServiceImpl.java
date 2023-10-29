@@ -7,6 +7,7 @@ import com.qny.video.domain.vo.VideoInfoVO;
 import com.qny.video.enumeration.VideoSortTag;
 import com.qny.video.exception.VerifyException;
 import com.qny.video.mapper.VideoMetadataMapper;
+import com.qny.video.service.VideoCollectService;
 import com.qny.video.service.VideoLikeService;
 import com.qny.video.service.VideoMetadataService;
 import org.springframework.beans.BeanUtils;
@@ -28,6 +29,8 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
     private VideoMetadataMapper videoMetadataMapper;
     @Resource
     private VideoLikeService videoLikeService;
+    @Resource
+    private VideoCollectService videoCollectService;
 
     @Override
     public boolean save(VideoMetadataDTO vmd) {
@@ -55,6 +58,8 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
         videoInfoVO.setVideoM3U8Url(videoMetadataModel.getFilePath());
         Long videoLikeCount = videoLikeService.getVideoLikeCount(Long.valueOf(videoInfoVO.getVideoId()));
         videoInfoVO.setVideLikeCount(videoLikeCount);
+        Long videoCollectCount = videoCollectService.getVideoCollectCount(Long.valueOf(videoInfoVO.getVideoId()));
+        videoInfoVO.setVideoCollectCount(videoCollectCount);
         return videoInfoVO;
     }
 }

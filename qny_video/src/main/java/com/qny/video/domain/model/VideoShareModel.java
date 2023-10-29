@@ -22,4 +22,6 @@ public class VideoShareModel implements Serializable {
     private Long toUserId;
     // 是否已读，0代表未读，1代表已读
     private Byte hasRead;
+    // 分享时间
+    private Long shareTime;
 }

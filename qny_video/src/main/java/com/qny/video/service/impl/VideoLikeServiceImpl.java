@@ -35,16 +35,17 @@ public class VideoLikeServiceImpl extends ServiceImpl<VideoLikeMapper, VideoLike
     }
 
     @Override
-    public boolean addVideoLikeCount(Long videoId, Long userId) {
+    public Boolean addVideoLikeCount(Long videoId, Long userId) {
         VideoLikeModel videoLikeModel = new VideoLikeModel();
         videoLikeModel.setUserId(userId);
         videoLikeModel.setVideoId(videoId);
+        videoLikeModel.setLikeTime(System.currentTimeMillis());
         // 新增记录
         return videoLikeMapper.insert(videoLikeModel) > 0;
     }
 
     @Override
-    public boolean subVideoLikeCount(Long videoId, Long userId)  {
+    public Boolean subVideoLikeCount(Long videoId, Long userId)  {
         if (videoId == null || userId == null) {
             return false;
         }
@@ -56,10 +57,11 @@ public class VideoLikeServiceImpl extends ServiceImpl<VideoLikeMapper, VideoLike
     }
 
     @Override
-    public boolean isLike(Long videoId, Long userId) {
+    public Boolean isLike(Long videoId, Long userId) {
         if (videoId == null || userId == null){
             return false;
         }
+        // 查询数据库
         return videoLikeMapper.selectCount(Wrappers
                 .<VideoLikeModel>lambdaQuery()
                 .eq(VideoLikeModel::getVideoId, videoId)

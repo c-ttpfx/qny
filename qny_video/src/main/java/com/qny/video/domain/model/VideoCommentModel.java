@@ -21,4 +21,6 @@ public class VideoCommentModel implements Serializable {
     private Long userId;
     // 评论信息
     private String comment;
+    // 评论时间
+    private Long commentTime;
 }

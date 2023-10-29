@@ -19,4 +19,6 @@ public class VideoLikeModel implements Serializable {
     private Long videoId;
     // 用户id
     private Long userId;
+    // 点赞时间
+    private Long likeTime;
 }
