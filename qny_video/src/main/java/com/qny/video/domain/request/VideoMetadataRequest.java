@@ -6,7 +6,6 @@ import com.qny.video.converter.VideoSortTagListDeserializer;
 import com.qny.video.enumeration.VideoSortTag;
 import com.sun.istack.internal.NotNull;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;

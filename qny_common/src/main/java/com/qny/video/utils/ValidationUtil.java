@@ -3,8 +3,6 @@ package com.qny.video.utils;
 import com.qny.video.exception.VerifyException;
 import org.springframework.validation.BindingResult;
 
-import java.util.Objects;
-
 /**
  * 字段校验工具类
  * @author ttpfx
