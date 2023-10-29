@@ -3,7 +3,16 @@ package com.qny.video.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.Claim;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.qny.video.constant.JWTConstants;
 import com.qny.video.domain.model.User;
+import com.qny.video.exception.GeneralException;
+import org.joda.time.DateTime;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * @author Knight
@@ -12,19 +21,58 @@ import com.qny.video.domain.model.User;
  **/
 
 public class JwtUtil {
+
+    public static final String JWT_KEY = JWTConstants.JWT_KEY;
+
     /**
-     * 生成JWT令牌
-     * @param user 用户对象
-     * @return JWT令牌
+     * 生成密钥
+     * @return 生成密钥
      */
-    public static String getToken(User user) {
-        String token = "";
-        token = JWT.create().withAudience(user.getUserId().toString())
-                .sign(Algorithm.HMAC256(user.getPassword()));
-        return token;
+    private static Algorithm getAlgorithm() {
+        return Algorithm.HMAC256(JWT_KEY);
     }
 
-    public static Long getUserID(String token) {
-        return Long.parseLong(JWT.decode(token).getAudience().get(0));
+    /**
+     * 生成token
+     *
+     * @param user 用户对象
+     * @param expireMinutes 过期时间，单位为 分钟
+     * @return token jwtToken
+     */
+    public static String generateToken(User user, int expireMinutes) {
+        return generateToken(String.valueOf(user.getUserId()), user.getName(), expireMinutes);
+    }
+
+    public static String generateToken(String userId, String userName, int expireMinutes) {
+        return JWT.create()
+                .withClaim(JWTConstants.JWT_KEY_USER_NAME, userName)
+                .withClaim(JWTConstants.JWT_KEY_ID, userId)
+                .withExpiresAt(DateTime.now().plusSeconds(expireMinutes).toDate())
+                .sign(getAlgorithm());
+    }
+
+    /**
+     * 解码token
+     *
+     * @param token jwtToken
+     * @return 用户信息
+     */
+    public static User decode(String token) {
+        User user = new User();
+        DecodedJWT decodedJWT = JWT.require(getAlgorithm()).build().verify(token);
+        Map<String, Claim> jwt = decodedJWT.getClaims();
+        String userName = jwt.get(JWTConstants.JWT_KEY_USER_NAME).asString();
+        String userId = jwt.get(JWTConstants.JWT_KEY_ID).asString();
+        user.setUserId(Long.parseLong(userId));
+        user.setName(userName);
+        return user;
+    }
+
+    public static User decode(HttpServletRequest request) {
+        String token = request.getHeader(JWTConstants.JWT_REQUEST_HEADER_KEY);
+        if (StringUtils.isEmpty(token)) {
+            throw new GeneralException("token为空");
+        }
+        return decode(token);
     }
 }
