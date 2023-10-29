@@ -36,7 +36,7 @@ public class JwtUtil {
      * 生成token
      *
      * @param user 用户对象
-     * @param expireMinutes 过期时间，单位为 分钟
+     * @param expireMinutes 过期时间，单位为 秒
      * @return token jwtToken
      */
     public static String generateToken(User user, int expireMinutes) {
