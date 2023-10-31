@@ -6,7 +6,7 @@ import com.qny.video.constant.AuthConstant;
 import com.qny.video.constant.AuthReturnMessage;
 import com.qny.video.constant.JWTConstants;
 import com.qny.video.domain.entity.Result;
-import com.qny.video.domain.model.User;
+import com.qny.video.domain.model.UserModel;
 import com.qny.video.utils.JwtUtil;
 import com.qny.gateway.util.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -65,7 +65,7 @@ public class GatewayGlobalFilter implements GlobalFilter {
         try {
 
             //校验token并解析token
-            User user = JwtUtil.decode(token);
+            UserModel user = JwtUtil.decode(token);
 
             // 登出，将当前 token 放入 redis 表示弃用
             if (url.equals(AuthConstant.URL_LOGOUT)) {

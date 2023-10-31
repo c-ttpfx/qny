@@ -2,13 +2,16 @@ package com.qny.video.domain.vo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 用于返回前端，里面含有视频各种信息
  * @author ttpfx
  * @since 2023/10/29
  */
 @Data
-public class VideoInfoVO {
+public class VideoInfoVO implements Serializable {
+    private static final long serialVersionUID = 1234567890L;
     // 视频id，不能使用Long，前端js有精度丢失问题
     private String videoId;
     // 视频m3u8文件地址

@@ -19,6 +19,7 @@ import java.util.List;
  */
 @Data
 public class VideoMetadataRequest implements Serializable {
+    private static final long serialVersionUID = 1234567890L;
 
     @NotEmpty(message = "视频标题不能为空")
     private String title;  // 视频标题

@@ -7,7 +7,7 @@ import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.qny.video.constant.JWTConstants;
-import com.qny.video.domain.model.User;
+import com.qny.video.domain.model.UserModel;
 import com.qny.video.exception.GeneralException;
 import org.joda.time.DateTime;
 
@@ -39,7 +39,7 @@ public class JwtUtil {
      * @param expireMinutes 过期时间，单位为 秒
      * @return token jwtToken
      */
-    public static String generateToken(User user, int expireMinutes) {
+    public static String generateToken(UserModel user, int expireMinutes) {
         return generateToken(String.valueOf(user.getUserId()), user.getName(), expireMinutes);
     }
 
@@ -57,8 +57,8 @@ public class JwtUtil {
      * @param token jwtToken
      * @return 用户信息
      */
-    public static User decode(String token) {
-        User user = new User();
+    public static UserModel decode(String token) {
+        UserModel user = new UserModel();
         DecodedJWT decodedJWT = JWT.require(getAlgorithm()).build().verify(token);
         Map<String, Claim> jwt = decodedJWT.getClaims();
         String userName = jwt.get(JWTConstants.JWT_KEY_USER_NAME).asString();
@@ -68,7 +68,7 @@ public class JwtUtil {
         return user;
     }
 
-    public static User decode(HttpServletRequest request) {
+    public static UserModel decode(HttpServletRequest request) {
         String token = request.getHeader(JWTConstants.JWT_REQUEST_HEADER_KEY);
         if (StringUtils.isEmpty(token)) {
             throw new GeneralException("token为空");
