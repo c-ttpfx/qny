@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.qny.video.domain.dto.VideoCommentDTO;
 import com.qny.video.domain.entity.Result;
 import com.qny.video.domain.request.VideoCommentRequest;
+import com.qny.video.domain.vo.VideoCommentShowVO;
 import com.qny.video.domain.vo.VideoCommentVO;
 import com.qny.video.exception.VerifyException;
 import com.qny.video.service.VideoCommentService;
@@ -16,6 +17,7 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * 用于提供视频评论接口
@@ -52,10 +54,30 @@ public class VideoCommentController {
         return flag ? Result.ok() : Result.fail();
     }
 
+    /**
+     * 获取一级评论
+     *
+     * @param videoId 视频id
+     * @return Result
+     */
     @GetMapping("/getRootComment")
     public Result getRootComment(@NotNull(message = "视频id不能为空")
-                          @RequestParam("videoId") Long videoId) {
+                                 @RequestParam("videoId") Long videoId) {
         VideoCommentVO videoCommentVO = videoCommentService.getRootComment(videoId);
         return Result.ok(videoCommentVO);
+    }
+
+    /**
+     * 获取2级评论
+     *
+     * @return Result
+     */
+    @GetMapping("/getCommentReply")
+    public Result getCommentReply(@NotNull(message = "视频id不能为空")
+                                  @RequestParam("videoId") Long videoId,
+                                  @NotNull(message = "评论id不能为空")
+                                  @RequestParam("commentId") Long commentId) {
+        List<VideoCommentShowVO> videoCommentShowVOS = videoCommentService.getCommentReply(videoId,commentId);
+        return Result.ok(videoCommentShowVOS);
     }
 }

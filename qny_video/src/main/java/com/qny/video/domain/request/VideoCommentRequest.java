@@ -26,5 +26,5 @@ public class VideoCommentRequest implements Serializable {
     private Long rootId;
 
     // 父评论id
-    private Long id;
+    private Long parentId;
 }

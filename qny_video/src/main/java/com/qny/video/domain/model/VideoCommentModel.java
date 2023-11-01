@@ -1,5 +1,6 @@
 package com.qny.video.domain.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -16,6 +17,7 @@ import java.util.Date;
 public class VideoCommentModel implements Serializable {
     private static final long serialVersionUID = 1234567890L;
     // 评论id
+    @TableId
     private Long id;
     // 视频id
     private Long videoId;

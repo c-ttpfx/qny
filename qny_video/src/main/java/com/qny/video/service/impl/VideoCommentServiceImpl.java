@@ -58,6 +58,7 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
                 .<VideoCommentModel>lambdaQuery()
                 .eq(VideoCommentModel::getVideoId, videoId)
                 .isNull(VideoCommentModel::getRootId)
+                .isNull(VideoCommentModel::getParentId)
         );
         // 获取评论用户的id数组
         Long[] userIdsArray = rootCommentList
@@ -65,7 +66,7 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
                 .map(VideoCommentModel::getUserId).toArray(Long[]::new);
         // 通过id集合获取对应的用户集合
         List<UserModel> userModelList = userFeginApi.getUserByIds(userIdsArray).getData();
-        if (userModelList == null)userModelList = new ArrayList<>();
+        if (userModelList == null) userModelList = new ArrayList<>();
         // 生成id->User的Map
         Map<Long, UserModel> userMap = userModelList
                 .stream()
@@ -77,18 +78,20 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
             BeanUtils.copyProperties(model, vo);
             // todo 先给个默认值0
             vo.setLikeCount(0);
+            // 设置评论id
+            vo.setId(String.valueOf(model.getId()));
             // 追评的条数
-            Integer replyCount = getCommentTotalCount(videoId, vo.getId());
+            Integer replyCount = getCommentTotalCount(videoId, model.getId());
             vo.setReplyCount(replyCount);
             // 设置头像
             UserModel user = userMap.get(model.getUserId());
-            vo.setUserIcon(user==null?"http://localhost:10002/images/路飞头像.png":user.getIcon());
+            vo.setUserIcon(user == null ? "http://localhost:10002/images/路飞头像.png" : user.getIcon());
             // 设置时间
             vo.setCommentTime(new Date(model.getCommentTime()));
             // 设置视频id
             vo.setVideoId(String.valueOf(model.getVideoId()));
             // 设置用户名称
-            vo.setUsername(user==null?"未知":user.getName());
+            vo.setUsername(user == null ? "未知" : user.getName());
             return vo;
         }).collect(Collectors.toList());
         videoCommentVO.setCommentShowList(rootCommentVo);
@@ -104,7 +107,76 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
         long count = count(Wrappers
                 .<VideoCommentModel>lambdaQuery()
                 .eq(VideoCommentModel::getVideoId, videoId)
-                .eq(commentId != null, VideoCommentModel::getId, commentId));
+                .and(commentId != null, wrapper -> wrapper
+                        .eq(VideoCommentModel::getParentId, commentId)
+                        .or()
+                        .eq(VideoCommentModel::getRootId, commentId)));
         return Math.toIntExact(count);
+    }
+
+    @Override
+    public List<VideoCommentShowVO> getCommentReply(Long videoId, Long commentId) {
+        // 获取非一级评论
+        List<VideoCommentModel> rootCommentList = videoCommentMapper.selectList(Wrappers
+                .<VideoCommentModel>lambdaQuery()
+                .eq(VideoCommentModel::getVideoId, videoId)
+                .and(wrapper -> {
+                    wrapper
+                            .eq(VideoCommentModel::getParentId, commentId)
+                            .or()
+                            .eq(VideoCommentModel::getRootId, commentId);
+                }));
+        // 查询顶级评论
+        VideoCommentModel videoCommentModel = videoCommentMapper.selectById(commentId);
+        rootCommentList.add(videoCommentModel);
+        // 评论id->用户id
+        Map<Long, Long> commentToUserMap = rootCommentList
+                .stream()
+                .collect(Collectors.toMap(VideoCommentModel::getId, VideoCommentModel::getUserId));
+
+        // 获取评论用户的id数组
+        Long[] userIdsArray = rootCommentList
+                .stream()
+                .map(VideoCommentModel::getUserId).toArray(Long[]::new);
+        // 通过id集合获取对应的用户集合
+        List<UserModel> userModelList = userFeginApi.getUserByIds(userIdsArray).getData();
+        if (userModelList == null) userModelList = new ArrayList<>();
+        // 生成id->User的Map
+        Map<Long, UserModel> userMap = userModelList
+                .stream()
+                .collect(Collectors.toMap(UserModel::getUserId, x -> x));
+        // 将Model转换成VO
+        List<VideoCommentShowVO> rootCommentVo = rootCommentList
+                .stream()
+                .filter(model-> model != videoCommentModel)
+                .map(model -> {
+                    VideoCommentShowVO vo = new VideoCommentShowVO();
+                    BeanUtils.copyProperties(model, vo);
+                    vo.setUserId(String.valueOf(model.getUserId()));
+                    vo.setId(String.valueOf(model.getId()));
+                    if (model.getRootId()!=null) {
+                        vo.setRootId(String.valueOf(model.getRootId()));
+                    }
+                    if (model.getParentId() != null) {
+                        vo.setParentId(String.valueOf(model.getParentId()));
+                    }
+                    // todo 先给个默认值0
+                    vo.setLikeCount(0);
+                    // 设置头像
+                    UserModel user = userMap.get(model.getUserId());
+                    vo.setUserIcon(user == null ? "http://localhost:10002/images/路飞头像.png" : user.getIcon());
+                    // 设置时间
+                    vo.setCommentTime(new Date(model.getCommentTime()));
+                    // 设置视频id
+                    vo.setVideoId(String.valueOf(model.getVideoId()));
+                    // 设置用户名称
+                    vo.setUsername(user == null ? "未知" : user.getName());
+                    if (vo.getParentId() != null && vo.getRootId() != null) {
+                        UserModel userModel = userMap.get(commentToUserMap.get(model.getParentId()));
+                        vo.setUsername(vo.getUsername() + " => " + (userModel == null ? "匿名用户" : userModel.getName()));
+                    }
+                    return vo;
+                }).collect(Collectors.toList());
+        return rootCommentVo;
     }
 }
