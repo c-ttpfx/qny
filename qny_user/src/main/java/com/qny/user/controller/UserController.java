@@ -1,5 +1,6 @@
 package com.qny.user.controller;
 
+import com.qiniu.util.Md5;
 import com.qny.user.service.UserService;
 import com.qny.video.domain.entity.Result;
 import com.qny.video.domain.model.UserModel;
@@ -7,11 +8,9 @@ import com.qny.video.utils.JwtUtil;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author Knight
@@ -26,20 +25,45 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public Result login(@RequestBody UserModel user) {
-        // TODO 将数据库加密密码与用户明文密码做对比,这里简单比较
-        if (!("admin".equals(user.getName()) && "123456".equals(user.getPassword()))) { // 用户登录失败
-            return Result.fail("账号密码有误");
+    public Result<Object> login(@RequestBody UserModel user) {
+        UserModel userDB = userService.query()
+                .eq("name", user.getName())
+                .eq("password", Md5.md5(user.getPassword().getBytes()))
+                .list().get(0);
+        if (!user.getName().equals(userDB.getName())) {
+            return Result.fail("账号有误");
+        }
+        if (!Md5.md5(user.getPassword().getBytes()).equals(userDB.getPassword())) {
+            return Result.fail("密码有误");
         }
         // 生成JWT令牌
-        String token = JwtUtil.generateToken(user, expireMinutes);
+        String token = JwtUtil.generateToken(userDB, expireMinutes);
+
         return Result.ok(token);
+    }
+
+    @PostMapping("/register")
+    public Result<Object> register(@RequestBody UserModel user) {
+        // 对密码进行二次加密
+        user.setPassword(Md5.md5(user.getPassword().getBytes()));
+        boolean save = userService.save(user);
+        if (save) {
+            return Result.ok("注册成功");
+        } else {
+            return Result.fail("注册失败");
+        }
     }
 
     @GetMapping("/getMessage")
     public String getMessage() {
         System.out.println("进入 getMessage！");
         return "你已通过验证";
+    }
+
+    @PostMapping("/getMessage")
+    public Result<String> getMessageTest() {
+        System.out.println("进入 getMessageTest！");
+        return  Result.ok("你已通过验证");
     }
 
     /**
