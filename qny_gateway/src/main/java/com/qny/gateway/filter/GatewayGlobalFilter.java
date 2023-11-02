@@ -37,7 +37,7 @@ import java.util.Arrays;
 public class GatewayGlobalFilter implements GlobalFilter {
 
     // gateway放行URI列表
-    public static String[]  excludeUris = new String[]{"/user/login", "/user/logout"};
+    public static String[]  excludeUris = new String[]{"/user/login", "/user/logout", "/user/register"};
 
     // redis 过期时间
     private static final int overdueTime = 20;

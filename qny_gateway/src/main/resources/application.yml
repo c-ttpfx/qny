@@ -2,7 +2,7 @@ server:
   port: 20000
 spring:
   main:
-    web-application-type: reactive
+    web-application-type: reactive # 防止与 web-starter 冲突
   application:
     name: qny_gateway
   cloud:

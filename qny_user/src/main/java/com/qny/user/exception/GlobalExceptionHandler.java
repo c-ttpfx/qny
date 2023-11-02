@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(GeneralException.class)
     @ResponseStatus(HttpStatus.OK)
-    public Result handleGeneralException(GeneralException ex) {
+    public Result<Object> handleGeneralException(GeneralException ex) {
         return Result.fail(ex.getMessage());
     }
 
