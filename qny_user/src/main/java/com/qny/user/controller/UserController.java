@@ -26,12 +26,9 @@ public class UserController {
 
     @PostMapping("/login")
     public Result<Object> login(@RequestBody UserModel user) {
-        UserModel userDB = userService.query()
-                .eq("name", user.getName())
-                .eq("password", Md5.md5(user.getPassword().getBytes()))
-                .list().get(0);
-        if (!user.getName().equals(userDB.getName())) {
-            return Result.fail("账号有误");
+        UserModel userDB = userService.query().eq("name", user.getName()).one();
+        if (userDB == null) {
+            return Result.fail("账号不存在");
         }
         if (!Md5.md5(user.getPassword().getBytes()).equals(userDB.getPassword())) {
             return Result.fail("密码有误");

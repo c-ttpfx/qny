@@ -31,6 +31,18 @@
 			<version>3.1.8</version>
 		</dependency>
 
+		<!-- nacos服务注册发现 -->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+		</dependency>
+
+		<!-- 客户端负载均衡：这里是统一负载均衡，防止nacos与gateway负载均衡冲突 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>
