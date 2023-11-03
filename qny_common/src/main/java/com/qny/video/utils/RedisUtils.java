@@ -1,4 +1,4 @@
-package com.qny.gateway.util;
+package com.qny.video.utils;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;

@@ -8,7 +8,7 @@ import com.qny.video.constant.JWTConstants;
 import com.qny.video.domain.entity.Result;
 import com.qny.video.domain.model.UserModel;
 import com.qny.video.utils.JwtUtil;
-import com.qny.gateway.util.RedisUtils;
+import com.qny.video.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
