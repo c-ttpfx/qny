@@ -8,6 +8,7 @@ import com.qny.video.utils.JwtUtil;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +50,21 @@ public class UserController {
         } else {
             return Result.fail("注册失败");
         }
+    }
+
+    @PostMapping("/verify")
+    public Result<Object> verifyToken(HttpServletRequest request) {
+        String token = request.getHeader("Authorization");
+        UserModel user = JwtUtil.decode(token);
+        if (user.getUserId() == null || user.getName() == null) {
+            return Result.fail("token解析失败");
+        }
+        UserModel userDB = userService.query().eq("name", user.getName()).one();
+        if (userDB == null) {
+            return Result.fail("不存在该用户");
+        }
+        // 因为这里会被网关拦截，并且验证token的正确性，所以接口只需要验证在数据库是否有该用户
+        return Result.ok("token验证成功");
     }
 
     @GetMapping("/getMessage")

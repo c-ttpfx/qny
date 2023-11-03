@@ -37,7 +37,8 @@ import java.util.Arrays;
 public class GatewayGlobalFilter implements GlobalFilter {
 
     // gateway放行URI列表
-    public static String[]  excludeUris = new String[]{"/user/login", "/user/logout", "/user/register"};
+    public static String[]  excludeUris = new String[]{
+            "/user/login", "/user/logout", "/user/register", "/video/randomVideo"};
 
     // redis 过期时间
     private static final int overdueTime = 20;
@@ -52,7 +53,9 @@ public class GatewayGlobalFilter implements GlobalFilter {
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
         String url = request.getURI().getPath();
-        // 1、如果是登录请求，直接放行
+        System.out.println("接收到请求：" + url);
+
+        // 1、属于放行列表，直接放行
         if (Arrays.asList(excludeUris).contains(url)) {
             return chain.filter(exchange); // 放行
         }

@@ -3,9 +3,11 @@ package com.qny.video.domain.vo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 用于返回前端，里面含有视频各种信息
+ *
  * @author ttpfx
  * @since 2023/10/29
  */
@@ -24,4 +26,10 @@ public class VideoInfoVO implements Serializable {
     private Long videoShareCount;
     // 视频收藏数
     private Long videoCollectCount;
+    // 作者
+    private String videoAuthor;
+    // 视频标题
+    private String videoTitle;
+    // 视频上传日期
+    private Date publishTime;
 }

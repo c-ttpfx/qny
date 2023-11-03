@@ -2,6 +2,7 @@ package com.qny.video.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qny.video.domain.dto.VideoMetadataDTO;
+import com.qny.video.domain.model.UserModel;
 import com.qny.video.domain.model.VideoMetadataModel;
 import com.qny.video.domain.vo.VideoInfoVO;
 import com.qny.video.enumeration.VideoSortTag;
@@ -11,6 +12,7 @@ import com.qny.video.service.VideoCollectService;
 import com.qny.video.service.VideoCommentService;
 import com.qny.video.service.VideoLikeService;
 import com.qny.video.service.VideoMetadataService;
+import feign.Feign;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -59,6 +61,8 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
         VideoMetadataModel videoMetadataModel = videoMetadataModels.get(index);
         videoInfoVO.setVideoId(String.valueOf(videoMetadataModel.getId()));
         videoInfoVO.setVideoM3U8Url(videoMetadataModel.getFilePath());
+        videoInfoVO.setVideoTitle(videoMetadataModel.getTitle());
+        videoInfoVO.setPublishTime(videoMetadataModel.getUploadTime());
         Long videoLikeCount = videoLikeService.getVideoLikeCount(Long.valueOf(videoInfoVO.getVideoId()));
         videoInfoVO.setVideLikeCount(videoLikeCount);
         Long videoCollectCount = videoCollectService.getVideoCollectCount(Long.valueOf(videoInfoVO.getVideoId()));
