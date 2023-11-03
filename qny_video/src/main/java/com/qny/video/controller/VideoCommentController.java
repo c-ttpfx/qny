@@ -1,12 +1,12 @@
 package com.qny.video.controller;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.qny.video.domain.dto.VideoCommentDTO;
 import com.qny.video.domain.entity.Result;
 import com.qny.video.domain.request.VideoCommentRequest;
 import com.qny.video.domain.vo.VideoCommentShowVO;
 import com.qny.video.domain.vo.VideoCommentVO;
 import com.qny.video.exception.VerifyException;
+import com.qny.video.service.CommentLikeService;
 import com.qny.video.service.VideoCommentService;
 import com.qny.video.utils.ValidationUtil;
 import org.springframework.beans.BeanUtils;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -31,7 +30,8 @@ public class VideoCommentController {
 
     @Resource
     private VideoCommentService videoCommentService;
-
+    @Resource
+    private CommentLikeService commentLikeService;
 
     /**
      * 视频评论接口
@@ -79,5 +79,62 @@ public class VideoCommentController {
                                   @RequestParam("commentId") Long commentId) {
         List<VideoCommentShowVO> videoCommentShowVOS = videoCommentService.getCommentReply(videoId,commentId);
         return Result.ok(videoCommentShowVOS);
+    }
+
+    /**
+     * 获取评论点赞次数
+     * @param commentId 评论id
+     * @return Result
+     */
+    @GetMapping("/getCommentLikeCount")
+    public Result getCommentLikeCount(@RequestParam("commentId") Long commentId){
+        Long count = commentLikeService.getCommentLikeCount(commentId);
+        return Result.ok(count);
+    }
+
+    /**
+     * 增加评论点赞数
+     * @param commentId 评论id
+     * @return Result
+     */
+    @PutMapping("/addCommentLikeCount")
+    public Result addCommentLikeCount(@RequestParam("commentId")
+                               @NotNull(message = "评论id不能为空")
+                               Long commentId) {
+        // 获取用户id
+        Long userId = 111L;
+        boolean isOk = commentLikeService.addCommentLikeCount(commentId, userId);
+        return Result.ok(isOk);
+    }
+
+    /**
+     * 减少评论点赞数
+     * @param commentId 评论id
+     * @return Result
+     */
+    @PutMapping("/subCommentLikeCount")
+    public Result subCommentLikeCount(@RequestParam("commentId")
+                                   @NotNull(message = "评论id不能为空")
+                                   Long commentId) {
+        // 获取用户id
+        Long userId = 111L;
+        boolean isOk = commentLikeService.subCommentLikeCount(commentId, userId);
+        return Result.ok(isOk);
+    }
+
+    /**
+     * 当前用户评论是否点赞
+     *
+     * @param commentId 评论id
+     * @return Result
+     */
+    @GetMapping("/isCommentLike")
+    public Result isCommentLike(@RequestParam("commentId")
+                         @NotNull(message = "评论id不能为空")
+                         @NotNull Long commentId) {
+        // 获取用户id
+        Long userId = 111L;
+        boolean isLike = commentLikeService.isCommentLike(commentId, userId);
+        return Result.ok(isLike);
     }
 }

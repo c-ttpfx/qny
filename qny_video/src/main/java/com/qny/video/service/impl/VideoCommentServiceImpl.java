@@ -10,9 +10,11 @@ import com.qny.video.domain.vo.VideoCommentVO;
 import com.qny.video.fegin.UserFeginApi;
 import com.qny.video.fegin.excp.UserFeginServiceFallBackFactory;
 import com.qny.video.mapper.VideoCommentMapper;
+import com.qny.video.service.CommentLikeService;
 import com.qny.video.service.VideoCommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -28,6 +30,8 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
     private VideoCommentMapper videoCommentMapper;
     @Resource
     private UserFeginApi userFeginApi;
+    @Resource
+    private CommentLikeService commentLikeService;
 
     @Override
     public boolean save(VideoCommentDTO videoCommentDTO) {
@@ -76,8 +80,11 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
         List<VideoCommentShowVO> rootCommentVo = rootCommentList.stream().map(model -> {
             VideoCommentShowVO vo = new VideoCommentShowVO();
             BeanUtils.copyProperties(model, vo);
-            // todo 先给个默认值0
-            vo.setLikeCount(0);
+            vo.setUserId(String.valueOf(model.getUserId()));
+            vo.setId(String.valueOf(model.getId()));
+            // 评论点赞数
+            Long commentLikeCount = commentLikeService.getCommentLikeCount(model.getId());
+            vo.setLikeCount(Math.toIntExact(commentLikeCount));
             // 设置评论id
             vo.setId(String.valueOf(model.getId()));
             // 追评的条数
@@ -91,7 +98,11 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
             // 设置视频id
             vo.setVideoId(String.valueOf(model.getVideoId()));
             // 设置用户名称
-            vo.setUsername(user == null ? "未知" : user.getName());
+            vo.setUsername(user == null ? "匿名用户" : user.getName());
+            // 判断指定用户是否对评论进行点赞
+            Long userId = 111L;
+            Boolean isLike = commentLikeService.isCommentLike(model.getId(), userId);
+            vo.setIsLike(isLike);
             return vo;
         }).collect(Collectors.toList());
         videoCommentVO.setCommentShowList(rootCommentVo);
@@ -160,8 +171,9 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
                     if (model.getParentId() != null) {
                         vo.setParentId(String.valueOf(model.getParentId()));
                     }
-                    // todo 先给个默认值0
-                    vo.setLikeCount(0);
+                    // 评论点赞数
+                    Long commentLikeCount = commentLikeService.getCommentLikeCount(model.getId());
+                    vo.setLikeCount(Math.toIntExact(commentLikeCount));
                     // 设置头像
                     UserModel user = userMap.get(model.getUserId());
                     vo.setUserIcon(user == null ? "http://localhost:10002/images/路飞头像.png" : user.getIcon());
@@ -175,6 +187,10 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
                         UserModel userModel = userMap.get(commentToUserMap.get(model.getParentId()));
                         vo.setUsername(vo.getUsername() + " => " + (userModel == null ? "匿名用户" : userModel.getName()));
                     }
+                    // 判断指定用户是否对评论进行点赞
+                    Long userId = 111L;
+                    Boolean isLike = commentLikeService.isCommentLike(model.getId(), userId);
+                    vo.setIsLike(isLike);
                     return vo;
                 }).collect(Collectors.toList());
         return rootCommentVo;

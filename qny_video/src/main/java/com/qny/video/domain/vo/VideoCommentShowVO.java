@@ -44,4 +44,6 @@ public class VideoCommentShowVO implements Serializable {
     private String userIcon;
     // 用户名称
     private String username;
+    // 对应用户是否点赞，需要用户id，如果没用用户id那么就是false
+    private Boolean isLike;
 }

@@ -40,4 +40,6 @@ public interface VideoLikeService extends IService<VideoLikeModel> {
      * @return true/false
      */
     Boolean isLike(Long videoId, Long userId);
+
+
 }

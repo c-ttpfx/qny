@@ -36,6 +36,9 @@ public class VideoLikeServiceImpl extends ServiceImpl<VideoLikeMapper, VideoLike
 
     @Override
     public Boolean addVideoLikeCount(Long videoId, Long userId) {
+        if (videoId == null || userId == null) {
+            return false;
+        }
         VideoLikeModel videoLikeModel = new VideoLikeModel();
         videoLikeModel.setUserId(userId);
         videoLikeModel.setVideoId(videoId);
