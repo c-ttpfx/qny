@@ -6,5 +6,6 @@ CREATE TABLE `user` (
                         `gender` varchar(2) comment '性别',
                         primary key(user_id)
 );
+ALTER TABLE `user` add UNIQUE KEY(`name`);
 
 insert into `user` values(1, '123456', 'admin', 10, '男');
