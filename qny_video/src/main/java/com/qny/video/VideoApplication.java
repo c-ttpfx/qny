@@ -10,10 +10,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author ttpfx
  * @since 2023/10/24
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.qny.*"})
 @EnableFeignClients
 @EnableDiscoveryClient
-@MapperScan("com.qny.video.mapper")
 public class VideoApplication {
 
     public static void main(String[] args) {

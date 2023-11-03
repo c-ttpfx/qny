@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @since 2023/10/28
  **/
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.qny.*"})
 @EnableDiscoveryClient
 public class GatewayApplication {
     public static void main(String[] args) {

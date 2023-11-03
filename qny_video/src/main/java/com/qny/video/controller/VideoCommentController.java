@@ -1,14 +1,14 @@
 package com.qny.video.controller;
 
 import com.qny.video.domain.dto.VideoCommentDTO;
-import com.qny.video.domain.entity.Result;
+import com.qny.common.domain.entity.Result;
 import com.qny.video.domain.request.VideoCommentRequest;
 import com.qny.video.domain.vo.VideoCommentShowVO;
 import com.qny.video.domain.vo.VideoCommentVO;
-import com.qny.video.exception.VerifyException;
+import com.qny.common.exception.VerifyException;
 import com.qny.video.service.CommentLikeService;
 import com.qny.video.service.VideoCommentService;
-import com.qny.video.utils.ValidationUtil;
+import com.qny.common.utils.ValidationUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.qny.video.exception;
+package com.qny.common.exception;
 
 /**
  * 自定义验证异常类，用于处理验证相关的异常情况。

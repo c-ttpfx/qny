@@ -1,6 +1,6 @@
-package com.qny.video.exception;
+package com.qny.common.exception;
 
-import com.qny.video.domain.entity.Result;
+import com.qny.common.domain.entity.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MissingServletRequestParameterException;

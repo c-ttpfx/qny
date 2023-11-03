@@ -1,4 +1,4 @@
-package com.qny.video.domain.entity;
+package com.qny.common.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

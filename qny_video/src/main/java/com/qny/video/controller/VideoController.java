@@ -1,13 +1,12 @@
 package com.qny.video.controller;
 
 import com.qny.video.domain.dto.VideoMetadataDTO;
-import com.qny.video.domain.entity.Result;
-import com.qny.video.domain.model.VideoMetadataModel;
+import com.qny.common.domain.entity.Result;
 import com.qny.video.domain.request.VideoMetadataRequest;
 import com.qny.video.domain.vo.VideoInfoVO;
-import com.qny.video.exception.VerifyException;
+import com.qny.common.exception.VerifyException;
 import com.qny.video.service.VideoMetadataService;
-import com.qny.video.utils.ValidationUtil;
+import com.qny.common.utils.ValidationUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;

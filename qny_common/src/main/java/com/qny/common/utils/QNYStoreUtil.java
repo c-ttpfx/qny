@@ -1,4 +1,4 @@
-package com.qny.video.utils;
+package com.qny.common.utils;
 
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;

@@ -1,4 +1,4 @@
-package com.qny.video.exception;
+package com.qny.common.exception;
 
 /**
  * 自定义未知异常类，用于处理未知或未预期的异常情况。

@@ -1,7 +1,7 @@
 package com.qny.video.fegin.excp;
 
-import com.qny.video.domain.entity.Result;
-import com.qny.video.domain.model.UserModel;
+import com.qny.common.domain.entity.Result;
+import com.qny.common.domain.model.UserModel;
 import com.qny.video.fegin.UserFeginApi;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;

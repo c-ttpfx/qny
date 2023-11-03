@@ -1,14 +1,9 @@
 package com.qny.video.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.qny.video.domain.model.VideoCollectModel;
 import com.qny.video.domain.model.VideoLikeModel;
-import com.qny.video.exception.VerifyException;
-import com.qny.video.mapper.VideoCollectMapper;
 import com.qny.video.mapper.VideoLikeMapper;
-import com.qny.video.service.VideoCollectService;
 import com.qny.video.service.VideoLikeService;
 import org.springframework.stereotype.Service;
 

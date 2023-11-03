@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @author ttpfx
  * @since 2023/10/24
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.qny.*"})
 @EnableDiscoveryClient
 public class UserApplication {
 

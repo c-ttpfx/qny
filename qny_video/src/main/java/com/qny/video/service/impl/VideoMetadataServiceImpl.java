@@ -2,17 +2,14 @@ package com.qny.video.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qny.video.domain.dto.VideoMetadataDTO;
-import com.qny.video.domain.model.UserModel;
 import com.qny.video.domain.model.VideoMetadataModel;
 import com.qny.video.domain.vo.VideoInfoVO;
 import com.qny.video.enumeration.VideoSortTag;
-import com.qny.video.exception.VerifyException;
 import com.qny.video.mapper.VideoMetadataMapper;
 import com.qny.video.service.VideoCollectService;
 import com.qny.video.service.VideoCommentService;
 import com.qny.video.service.VideoLikeService;
 import com.qny.video.service.VideoMetadataService;
-import feign.Feign;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

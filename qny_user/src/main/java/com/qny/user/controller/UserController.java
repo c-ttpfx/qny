@@ -2,9 +2,9 @@ package com.qny.user.controller;
 
 import com.qiniu.util.Md5;
 import com.qny.user.service.UserService;
-import com.qny.video.domain.entity.Result;
-import com.qny.video.domain.model.UserModel;
-import com.qny.video.utils.JwtUtil;
+import com.qny.common.domain.entity.Result;
+import com.qny.common.domain.model.UserModel;
+import com.qny.common.utils.JwtUtil;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

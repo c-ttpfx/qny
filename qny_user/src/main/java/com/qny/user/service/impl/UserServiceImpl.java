@@ -3,7 +3,7 @@ package com.qny.user.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qny.user.mapper.UserMapper;
 import com.qny.user.service.UserService;
-import com.qny.video.domain.model.UserModel;
+import com.qny.common.domain.model.UserModel;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

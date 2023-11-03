@@ -1,6 +1,6 @@
 package com.qny.video.controller;
 
-import com.qny.video.domain.entity.Result;
+import com.qny.common.domain.entity.Result;
 import com.qny.video.service.VideoCollectService;
 import org.springframework.web.bind.annotation.*;
 

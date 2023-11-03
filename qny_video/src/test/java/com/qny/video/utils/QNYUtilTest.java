@@ -1,6 +1,8 @@
 package com.qny.video.utils;
 
 import com.qiniu.common.QiniuException;
+import com.qny.common.utils.FileUtils;
+import com.qny.common.utils.QNYStoreUtil;
 import com.qny.video.domain.model.VideoMetadataModel;
 import com.qny.video.service.VideoMetadataService;
 import org.junit.jupiter.api.Test;
@@ -22,7 +24,7 @@ public class QNYUtilTest {
     @Test
     public void addVideo() {
         String prefix = "http://s32r2vddr.hn-bkt.clouddn.com/";
-        FileUtils.readFiles("D:\\资料\\学习资料\\视频",path->{
+        FileUtils.readFiles("D:\\资料\\学习资料\\视频", path->{
             String filePath = path.toString();
             try {
                 String s = QNYStoreUtil.uploadAndTranscodeVideo(filePath);

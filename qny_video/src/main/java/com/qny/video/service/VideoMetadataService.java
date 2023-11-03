@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.qny.video.domain.dto.VideoMetadataDTO;
 import com.qny.video.domain.model.VideoMetadataModel;
 import com.qny.video.domain.vo.VideoInfoVO;
-import com.qny.video.exception.VerifyException;
 
 /**
  * @author ttpfx

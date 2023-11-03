@@ -1,7 +1,7 @@
 package com.qny.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.qny.video.domain.model.UserModel;
+import com.qny.common.domain.model.UserModel;
 
 import java.util.List;
 

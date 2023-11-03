@@ -1,14 +1,11 @@
 package com.qny.video.controller;
 
-import com.qny.video.domain.entity.Result;
-import com.qny.video.exception.VerifyException;
+import com.qny.common.domain.entity.Result;
 import com.qny.video.service.VideoLikeService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * 用于提供视频点赞接口

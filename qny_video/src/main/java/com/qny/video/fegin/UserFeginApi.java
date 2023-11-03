@@ -1,15 +1,13 @@
 package com.qny.video.fegin;
 
-import com.qny.video.domain.entity.Result;
-import com.qny.video.domain.model.UserModel;
+import com.qny.common.domain.entity.Result;
+import com.qny.common.domain.model.UserModel;
 import com.qny.video.fegin.excp.UserFeginServiceFallBackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**

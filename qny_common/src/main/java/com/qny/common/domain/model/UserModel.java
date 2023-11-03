@@ -1,4 +1,4 @@
-package com.qny.video.domain.model;
+package com.qny.common.domain.model;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;

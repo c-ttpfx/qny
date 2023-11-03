@@ -1,6 +1,6 @@
-package com.qny.video.utils;
+package com.qny.common.utils;
 
-import com.qny.video.exception.VerifyException;
+import com.qny.common.exception.VerifyException;
 import org.springframework.validation.BindingResult;
 
 /**

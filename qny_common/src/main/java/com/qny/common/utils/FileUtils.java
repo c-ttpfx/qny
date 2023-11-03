@@ -1,4 +1,4 @@
-package com.qny.video.utils;
+package com.qny.common.utils;
 
 import java.io.IOException;
 import java.nio.file.*;

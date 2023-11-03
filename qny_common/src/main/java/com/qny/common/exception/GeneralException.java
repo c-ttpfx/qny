@@ -1,4 +1,4 @@
-package com.qny.video.exception;
+package com.qny.common.exception;
 
 /**
  * @author Knight

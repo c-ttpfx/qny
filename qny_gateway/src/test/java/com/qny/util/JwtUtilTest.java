@@ -1,7 +1,7 @@
 package com.qny.util;
 
-import com.qny.video.domain.model.UserModel;
-import com.qny.video.utils.JwtUtil;
+import com.qny.common.domain.model.UserModel;
+import com.qny.common.utils.JwtUtil;
 
 /**
  * @author Knight

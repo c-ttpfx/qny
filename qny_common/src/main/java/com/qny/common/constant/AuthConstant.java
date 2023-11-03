@@ -1,4 +1,4 @@
-package com.qny.video.constant;
+package com.qny.common.constant;
 
 /**
  * @author Knight
