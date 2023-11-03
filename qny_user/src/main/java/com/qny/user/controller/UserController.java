@@ -56,7 +56,7 @@ public class UserController {
     public Result<Object> verifyToken(HttpServletRequest request) {
         String token = request.getHeader("Authorization");
         UserModel user = JwtUtil.decode(token);
-        if (user.getName() == null || user.getPassword() == null) {
+        if (user.getUserId() == null || user.getName() == null) {
             return Result.fail("token解析失败");
         }
         UserModel userDB = userService.query().eq("name", user.getName()).one();
