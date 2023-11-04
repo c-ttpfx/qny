@@ -10,9 +10,12 @@ import com.qny.common.constant.JWTConstants;
 import com.qny.common.domain.model.UserModel;
 import com.qny.common.exception.GeneralException;
 import org.joda.time.DateTime;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author Knight
@@ -74,5 +77,19 @@ public class JwtUtil {
             throw new GeneralException("token为空");
         }
         return decode(token);
+    }
+
+    /**
+     * 获取用户ID
+     * @return ID
+     */
+    public static String getUserID() {
+        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes()))
+                .getRequest();
+        String token = request.getHeader(JWTConstants.JWT_REQUEST_HEADER_KEY);
+        if (StringUtils.isEmpty(token)) {
+            throw new GeneralException("token为空");
+        }
+        return decode(token).getUserId().toString();
     }
 }
