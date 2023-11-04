@@ -11,9 +11,12 @@ import com.qiniu.util.UrlSafeBase64;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 七牛云工具类
+ *
  * @author ttpfx
  * @since 2023/10/25
  */
@@ -48,13 +51,13 @@ public class QNYStoreUtil {
         String currentDateTime = now.getYear() + "/" + now.getMonthValue() + "/" + now.getDayOfMonth() + "/"
                 + LocalDateTime.now().getHour() + "/" + LocalDateTime.now().getMinute() + "/";
 
-        String filename = localFilePath.substring(localFilePath.lastIndexOf("\\")+1);
+        String filename = localFilePath.substring(localFilePath.lastIndexOf("\\") + 1);
         // 构建七牛云中的文件名和路径
-        String key = currentDateTime + System.currentTimeMillis()+"--"+filename;
+        String key = currentDateTime + System.currentTimeMillis() + "--" + filename;
 
         // 定义转码操作
         String saveAsKey = currentDateTime + System.currentTimeMillis()
-                +"--"+filename.substring(0,filename.lastIndexOf(".")+1)+"m3u8";
+                + "--" + filename.substring(0, filename.lastIndexOf(".") + 1) + "m3u8";
         String hlsBaseUrl = currentDateTime;
         String fops = String.format(
                 "avthumb/m3u8/segment/%d/hls_base_url/%s|saveas/%s",
@@ -75,16 +78,50 @@ public class QNYStoreUtil {
         Response response = uploadManager.put(localFilePath, key, upToken);
         if (response.isOK()) {
             return saveAsKey;
-        }else {
+        } else {
             return null;
         }
     }
 
+    public static Map<String, String> getQiNiuToken(String fileName) {
+        // 创建授权对象，并生成上传凭证
+        Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 
+        // 获取当前时间
+        LocalDate now = LocalDate.now();
+        String currentDateTime = now.getYear() + "/" + now.getMonthValue() + "/" + now.getDayOfMonth() + "/"
+                + LocalDateTime.now().getHour() + "/" + LocalDateTime.now().getMinute() + "/";
+
+        // 构建七牛云中的文件名和路径
+        String key = currentDateTime + System.currentTimeMillis() + "--" + fileName;
+
+        // 定义转码操作
+        String saveAsKey = currentDateTime + System.currentTimeMillis()
+                + "--" + fileName.substring(0, fileName.lastIndexOf(".") + 1) + "m3u8";
+        String fops = String.format(
+                "avthumb/m3u8/segment/%d/hls_base_url/%s|saveas/%s",
+                10,  // 设置分段时长为10秒，可以根据需要调整
+                UrlSafeBase64.encodeToString(currentDateTime),
+                UrlSafeBase64.encodeToString(BUCKET_NAME + ":" + saveAsKey)
+        );
+
+        // 设置上传策略中的persistentOps字段以指定转码操作
+        StringMap putPolicy = new StringMap();
+        putPolicy.put("persistentOps", fops);
+        putPolicy.put("persistentPipeline", PIPELINE);
+
+        // 生成上传凭证
+        String token = auth.uploadToken(BUCKET_NAME, key, 3600, putPolicy);
+        Map<String, String> map = new HashMap<>();
+        map.put("token", token);
+        map.put("key", key);
+        return map;
+    }
 
     public static void main(String[] args) {
         try {
-            String localFilePath = "D:\\代码\\JAVA代码\\qny\\qny_video\\src\\main\\resources\\video\\1.mp4";
+            // String localFilePath = "D:\\代码\\JAVA代码\\qny\\qny_video\\src\\main\\resources\\video\\1.mp4";
+            String localFilePath = "C:\\Users\\16071\\Desktop\\QQ录屏20231104221837.mp4";
             String s = uploadAndTranscodeVideo(localFilePath);
             System.out.println(s);
         } catch (QiniuException ex) {

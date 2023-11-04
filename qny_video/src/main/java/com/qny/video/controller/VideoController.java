@@ -1,5 +1,6 @@
 package com.qny.video.controller;
 
+import com.qny.common.utils.QNYStoreUtil;
 import com.qny.video.domain.dto.VideoMetadataDTO;
 import com.qny.common.domain.entity.Result;
 import com.qny.video.domain.request.VideoMetadataRequest;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.Map;
+
 /**
  * @author ttpfx
  * @since 2023/10/25
@@ -29,7 +32,7 @@ public class VideoController {
      * @return Result
      */
     @GetMapping("/randomVideo")
-    public Result getVideo() {
+    public Result<Object> getVideo() {
         // todo 这里后续必须使用Redis优化，现在先让功能跑起来
         VideoInfoVO videoInfoVO = videoMetadataService.randomVideoInfo();
         return Result.ok(videoInfoVO);
@@ -41,7 +44,7 @@ public class VideoController {
      * @return Result
      */
     @PostMapping("/save")
-    public Result save(@Valid @RequestBody VideoMetadataRequest vmr, BindingResult bindingResult) throws VerifyException {
+    public Result<Object> save(@Valid @RequestBody VideoMetadataRequest vmr, BindingResult bindingResult) throws VerifyException {
         ValidationUtil.check(bindingResult);
         VideoMetadataDTO vmd = new VideoMetadataDTO();
         BeanUtils.copyProperties(vmr, vmd);
@@ -50,5 +53,10 @@ public class VideoController {
             return Result.fail();
         }
         return Result.ok();
+    }
+
+    @PostMapping("/getQiNiuToken")
+    public Result<Map<String, String>> getQiNiuToken(@RequestBody Map<String, String> map) {
+        return Result.ok(QNYStoreUtil.getQiNiuToken(map.get("fileName")));
     }
 }

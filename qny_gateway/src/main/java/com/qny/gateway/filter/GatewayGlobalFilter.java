@@ -38,10 +38,10 @@ public class GatewayGlobalFilter implements GlobalFilter {
 
     // gateway放行URI列表
     public static String[]  excludeUris = new String[]{
-            "/user/login", "/user/logout", "/user/register", "/video/randomVideo"};
+            "/user/login", "/user/register", "/video/randomVideo"};
 
     // redis 过期时间
-    private static final int overdueTime = 20;
+    private static final int overdueTime = 3600;
 
     private static final int expireMinutes = 3600; // token 过期时间, 单位：秒
 
@@ -100,8 +100,6 @@ public class GatewayGlobalFilter implements GlobalFilter {
         log.error(tokenExpiredException.getMessage(), tokenExpiredException);
         String userName = exchange.getRequest().getHeaders().getFirst(JWTConstants.JWT_REQUEST_KEY_USER_NAME);
         String userId = exchange.getRequest().getHeaders().getFirst(JWTConstants.JWT_REQUEST_KEY_ID);
-        ServerHttpRequest request = exchange.getRequest();
-        // String ip = request.getURI().getHost();
         ServerHttpResponse resp = exchange.getResponse();
 
         //登出
