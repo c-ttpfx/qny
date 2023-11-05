@@ -93,7 +93,7 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
             vo.setReplyCount(replyCount);
             // 设置头像
             UserModel user = userMap.get(model.getUserId());
-            vo.setUserIcon(user == null ? "http://localhost:10002/images/路飞头像.png" : user.getIcon());
+            vo.setUserIcon(user == null ? "http://localhost:10002/video/images/路飞头像.png" : user.getIcon());
             // 设置时间
             vo.setCommentTime(new Date(model.getCommentTime()));
             // 设置视频id
@@ -177,7 +177,7 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
                     vo.setLikeCount(Math.toIntExact(commentLikeCount));
                     // 设置头像
                     UserModel user = userMap.get(model.getUserId());
-                    vo.setUserIcon(user == null ? "http://localhost:10002/images/路飞头像.png" : user.getIcon());
+                    vo.setUserIcon(user == null ? "http://localhost:10002/video/images/路飞头像.png" : user.getIcon());
                     // 设置时间
                     vo.setCommentTime(new Date(model.getCommentTime()));
                     // 设置视频id

@@ -38,7 +38,7 @@ public class GatewayGlobalFilter implements GlobalFilter {
 
     // gateway放行URI列表
     public static String[]  excludeUris = new String[]{
-            "/user/login", "/user/register", "/video/randomVideo"};
+            "/user/login", "/user/register", "/video"};
 
     // redis 过期时间
     private static final int overdueTime = 3600;
@@ -62,9 +62,15 @@ public class GatewayGlobalFilter implements GlobalFilter {
         * 3、验证token，如果格式不正确，返回认证无效错误信息。
         * 4、验证token，如果token过期，返回认证过期错误信息。
         * */
-
         // 1、属于放行列表，直接放行
-        if (Arrays.asList(excludeUris).contains(url)) {
+        boolean flag = false;
+        for (String uri : excludeUris) {
+            if (url.startsWith(uri)){
+                flag = true;
+                break;
+            }
+        }
+        if (flag){
             return chain.filter(exchange); // 放行
         }
         // 如果不是登录直接验证 token
