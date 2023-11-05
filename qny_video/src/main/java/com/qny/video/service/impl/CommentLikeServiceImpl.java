@@ -37,7 +37,7 @@ public class CommentLikeServiceImpl extends ServiceImpl<CommentLikeMapper, Comme
                 .<CommentLikeModel>lambdaQuery()
                 .eq(CommentLikeModel::getCommentId, commentId));
         // 将数据存储到Redis
-        redisUtils.set(key,key,600);
+        redisUtils.set(key,count,600);
         return count;
     }
 
