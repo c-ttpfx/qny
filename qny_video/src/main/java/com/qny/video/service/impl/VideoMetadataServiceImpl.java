@@ -1,9 +1,7 @@
 package com.qny.video.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.qny.common.domain.entity.Result;
 import com.qny.common.domain.model.UserModel;
 import com.qny.common.utils.RedisUtils;
 import com.qny.video.constant.RedisConstant;

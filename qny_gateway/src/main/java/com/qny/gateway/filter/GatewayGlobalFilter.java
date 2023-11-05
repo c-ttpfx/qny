@@ -37,7 +37,7 @@ public class GatewayGlobalFilter implements GlobalFilter {
 
     // gateway放行URI列表
     public static String[]  excludeUris = new String[]{
-            "/user/login", "/user/register", "/video/"};
+            "/user/login", "/user/register", "/video"};
 
     // redis 过期时间
     private static final int overdueTime = 3600;

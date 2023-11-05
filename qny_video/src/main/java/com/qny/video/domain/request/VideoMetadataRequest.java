@@ -2,6 +2,9 @@ package com.qny.video.domain.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.qny.video.converter.VideoSortTagListDeserializer;
+import com.qny.video.enumeration.VideoSortTag;
 import com.sun.istack.internal.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +14,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author ttpfx
@@ -43,7 +47,6 @@ public class VideoMetadataRequest implements Serializable {
     private String resolution;  // 视频分辨率（例如：1920x1080）
     @Min(1)
     private Long fileSize;  // 文件大小（单位：字节）
-    // @JsonDeserialize(using = VideoSortTagListDeserializer.class)
-    // private List<VideoSortTag> tags;  // 标签(以逗号分隔的标签列表)
-    private String tags; // 标签(以逗号分隔的标签列表)
+    @JsonDeserialize(using = VideoSortTagListDeserializer.class)
+    private List<VideoSortTag> tags;  // 标签(以逗号分隔的标签列表)
 }
