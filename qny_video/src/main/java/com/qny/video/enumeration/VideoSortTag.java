@@ -1,5 +1,7 @@
 package com.qny.video.enumeration;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +11,7 @@ import java.util.Map;
  * @author ttpfx
  * @since 2023/10/27
  */
+@Getter
 public enum VideoSortTag {
 
     /**
@@ -118,6 +121,11 @@ public enum VideoSortTag {
 
     /**
      * 标签名称
+     * -- GETTER --
+     *  获取标签名称的方法。
+     *
+     * @return 标签名称
+
      */
     private final String tagName;
 
@@ -128,15 +136,6 @@ public enum VideoSortTag {
      */
     VideoSortTag(String tagName) {
         this.tagName = tagName;
-    }
-
-    /**
-     * 获取标签名称的方法。
-     *
-     * @return 标签名称
-     */
-    public String getTagName() {
-        return tagName;
     }
 
     // 存储枚举值和枚举实例的映射
