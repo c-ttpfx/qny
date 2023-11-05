@@ -1,6 +1,7 @@
 package com.qny.video.controller;
 
 import com.qny.common.domain.entity.Result;
+import com.qny.common.utils.JwtUtil;
 import com.qny.video.service.VideoLikeService;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +42,7 @@ public class VideoLikeController {
                                @NotNull(message = "视频id不能为空")
                                Long videoId) {
         // 获取用户id
-        Long userId = 111L;
+        Long userId = Long.valueOf(JwtUtil.getUserID());
         boolean isOk = videoLikeService.addVideoLikeCount(videoId, userId);
         return isOk ? Result.ok() : Result.fail();
 
@@ -57,7 +58,7 @@ public class VideoLikeController {
                                @NotNull(message = "视频id不能为空")
                                @NotNull Long videoId) {
         // 获取用户id
-        Long userId = 111L;
+        Long userId = Long.valueOf(JwtUtil.getUserID());
         boolean isOk = videoLikeService.subVideoLikeCount(videoId, userId);
         return isOk ? Result.ok() : Result.fail();
     }
@@ -73,7 +74,7 @@ public class VideoLikeController {
                          @NotNull(message = "视频id不能为空")
                          @NotNull Long videoId) {
         // 获取用户id
-        Long userId = 111L;
+        Long userId = Long.valueOf(JwtUtil.getUserID());
         boolean isLike = videoLikeService.isLike(videoId, userId);
         return Result.ok(isLike);
     }

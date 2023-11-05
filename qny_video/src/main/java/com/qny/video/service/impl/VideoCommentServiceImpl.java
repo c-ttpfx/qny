@@ -2,6 +2,7 @@ package com.qny.video.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.qny.common.utils.JwtUtil;
 import com.qny.common.utils.RedisUtils;
 import com.qny.video.domain.dto.VideoCommentDTO;
 import com.qny.common.domain.model.UserModel;
@@ -101,7 +102,7 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
             // 设置用户名称
             vo.setUsername(user == null ? "匿名用户" : user.getName());
             // 判断指定用户是否对评论进行点赞
-            Long userId = 111L;
+            Long userId = Long.valueOf(JwtUtil.getUserID());
             Boolean isLike = commentLikeService.isCommentLike(model.getId(), userId);
             vo.setIsLike(isLike);
             return vo;
@@ -189,7 +190,7 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
                         vo.setUsername(vo.getUsername() + " => " + (userModel == null ? "匿名用户" : userModel.getName()));
                     }
                     // 判断指定用户是否对评论进行点赞
-                    Long userId = 111L;
+                    Long userId = Long.valueOf(JwtUtil.getUserID());
                     Boolean isLike = commentLikeService.isCommentLike(model.getId(), userId);
                     vo.setIsLike(isLike);
                     return vo;

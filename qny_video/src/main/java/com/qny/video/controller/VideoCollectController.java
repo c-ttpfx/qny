@@ -1,6 +1,7 @@
 package com.qny.video.controller;
 
 import com.qny.common.domain.entity.Result;
+import com.qny.common.utils.JwtUtil;
 import com.qny.video.service.VideoCollectService;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,7 +41,7 @@ public class VideoCollectController {
                                        @NotNull(message = "视频id不能为空")
                                        @NotNull Long videoId) {
         // 用户id
-        Long userId= 111L;
+        Long userId= Long.valueOf(JwtUtil.getUserID());
         Boolean isOK = videoCollectService.addVideoCollect(videoId,userId);
         return isOK ? Result.ok():Result.fail();
     }
@@ -53,7 +54,7 @@ public class VideoCollectController {
                                        @NotNull(message = "视频id不能为空")
                                        @NotNull Long videoId) {
         // 用户id
-        Long userId= 111L;
+        Long userId= Long.valueOf(JwtUtil.getUserID());
         Boolean isOK = videoCollectService.subVideoCollect(videoId,userId);
         return isOK ? Result.ok():Result.fail();
     }
@@ -69,7 +70,7 @@ public class VideoCollectController {
                          @NotNull(message = "视频id不能为空")
                          @NotNull Long videoId) {
         // 获取用户id
-        Long userId = 111L;
+        Long userId = Long.parseLong(JwtUtil.getUserID());
         Boolean isLike = videoCollectService.isCollect(videoId, userId);
         return Result.ok(isLike);
     }

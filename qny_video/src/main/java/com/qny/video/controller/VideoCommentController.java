@@ -1,5 +1,6 @@
 package com.qny.video.controller;
 
+import com.qny.common.utils.JwtUtil;
 import com.qny.video.domain.dto.VideoCommentDTO;
 import com.qny.common.domain.entity.Result;
 import com.qny.video.domain.request.VideoCommentRequest;
@@ -49,7 +50,9 @@ public class VideoCommentController {
         videoCommentDTO.setCommentTime(System.currentTimeMillis());
         // todo 当前全部都使用重庆
         videoCommentDTO.setCommentRegion("重庆");
-        videoCommentDTO.setUserId(111L);
+        // 获取用户id
+        Long userID = Long.valueOf(JwtUtil.getUserID());
+        videoCommentDTO.setUserId(userID);
         boolean flag = videoCommentService.save(videoCommentDTO);
         return flag ? Result.ok() : Result.fail();
     }
@@ -102,7 +105,7 @@ public class VideoCommentController {
                                @NotNull(message = "评论id不能为空")
                                Long commentId) {
         // 获取用户id
-        Long userId = 111L;
+        Long userId = Long.valueOf(JwtUtil.getUserID());
         boolean isOk = commentLikeService.addCommentLikeCount(commentId, userId);
         return Result.ok(isOk);
     }
@@ -117,7 +120,7 @@ public class VideoCommentController {
                                    @NotNull(message = "评论id不能为空")
                                    Long commentId) {
         // 获取用户id
-        Long userId = 111L;
+        Long userId = Long.valueOf(JwtUtil.getUserID());
         boolean isOk = commentLikeService.subCommentLikeCount(commentId, userId);
         return Result.ok(isOk);
     }
@@ -133,7 +136,7 @@ public class VideoCommentController {
                          @NotNull(message = "评论id不能为空")
                          @NotNull Long commentId) {
         // 获取用户id
-        Long userId = 111L;
+        Long userId = Long.valueOf(JwtUtil.getUserID());
         boolean isLike = commentLikeService.isCommentLike(commentId, userId);
         return Result.ok(isLike);
     }
