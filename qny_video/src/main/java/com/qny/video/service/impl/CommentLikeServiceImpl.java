@@ -2,8 +2,9 @@ package com.qny.video.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.qny.common.utils.RedisUtils;
+import com.qny.video.constant.RedisConstant;
 import com.qny.video.domain.model.CommentLikeModel;
-import com.qny.video.domain.model.VideoLikeModel;
 import com.qny.video.mapper.CommentLikeMapper;
 import com.qny.video.service.CommentLikeService;
 import org.springframework.stereotype.Service;
@@ -19,15 +20,25 @@ import java.util.Date;
 public class CommentLikeServiceImpl extends ServiceImpl<CommentLikeMapper, CommentLikeModel> implements CommentLikeService {
     @Resource
     private CommentLikeMapper commentLikeMapper;
+    @Resource
+    private RedisUtils redisUtils;
     @Override
     public Long getCommentLikeCount(Long commentId) {
         if (commentId == null){
             return 0L;
         }
+        String key = String.format(RedisConstant.COMMENT_LIKE_COUNT_KEY, commentId);
+        // 首先查询Redis
+        if (redisUtils.hasKey(key)) {
+            return redisUtils.getLong(key);
+        }
         // 查询数据库
-        return commentLikeMapper.selectCount(Wrappers
+        Long count = commentLikeMapper.selectCount(Wrappers
                 .<CommentLikeModel>lambdaQuery()
-                .eq(CommentLikeModel::getCommentId,commentId));
+                .eq(CommentLikeModel::getCommentId, commentId));
+        // 将数据存储到Redis
+        redisUtils.set(key,key,600);
+        return count;
     }
 
     @Override
@@ -40,7 +51,15 @@ public class CommentLikeServiceImpl extends ServiceImpl<CommentLikeMapper, Comme
         commentLikeModel.setUserId(userId);
         commentLikeModel.setTime(new Date().getTime());
         // 保存数据
-        return commentLikeMapper.insert(commentLikeModel) > 0;
+        boolean flag=  commentLikeMapper.insert(commentLikeModel) > 0;
+        if (flag) {
+            // 数据更新删除Redis
+            String key = String.format(RedisConstant.COMMENT_LIKE_COUNT_KEY, commentId);
+            redisUtils.del(key);
+            key = String.format(RedisConstant.USER_COMMENT_LIKE_KEY,userId,commentId);
+            redisUtils.del(key);
+        }
+        return  flag;
     }
 
     @Override
@@ -49,10 +68,18 @@ public class CommentLikeServiceImpl extends ServiceImpl<CommentLikeMapper, Comme
             return false;
         }
         // 删除记录
-        return commentLikeMapper.delete(Wrappers
+        boolean flag=  commentLikeMapper.delete(Wrappers
                 .<CommentLikeModel>lambdaQuery()
                 .eq(CommentLikeModel::getCommentId, commentId)
                 .eq(CommentLikeModel::getUserId, userId)) > 0;
+        if (flag) {
+            // 数据更新删除Redis
+            String key = String.format(RedisConstant.COMMENT_LIKE_COUNT_KEY, commentId);
+            redisUtils.del(key);
+            key = String.format(RedisConstant.USER_COMMENT_LIKE_KEY,userId,commentId);
+            redisUtils.del(key);
+        }
+        return flag;
     }
 
     @Override
@@ -60,10 +87,18 @@ public class CommentLikeServiceImpl extends ServiceImpl<CommentLikeMapper, Comme
         if (commentId == null || userId == null) {
             return false;
         }
+        String key = String.format(RedisConstant.USER_COMMENT_LIKE_KEY, userId,commentId);
+        // 首先查询Redis
+        if (redisUtils.hasKey(key)) {
+            return (Boolean) redisUtils.get(key);
+        }
         // 查询数据库
-        return commentLikeMapper.selectCount(Wrappers
+        boolean flag =  commentLikeMapper.selectCount(Wrappers
                 .<CommentLikeModel>lambdaQuery()
                 .eq(CommentLikeModel::getCommentId, commentId)
                 .eq(CommentLikeModel::getUserId, userId)) > 0;
+        // 缓存Redis
+        redisUtils.set(key,flag,600);
+        return flag;
     }
 }

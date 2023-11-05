@@ -90,6 +90,30 @@ public class RedisUtils {
     public Object get(String key) {
         return key == null ? null : redisTemplate.opsForValue().get(key);
     }
+    /**
+     * 获取String
+     * @param key 键
+     * @return String
+     */
+    public String getStr(String key){
+        return String.valueOf( get(key));
+    }
+    /**
+     * 获取Long
+     * @param key 键
+     * @return Long
+     */
+    public Long getLong(String key){
+        return Long.parseLong(getStr(key));
+    }
+    /**
+     * 获取Integer
+     * @param key 键
+     * @return Integer
+     */
+    public Integer getInteger(String key){
+        return Integer.parseInt(getStr(key));
+    }
 
     /**
      * 普通缓存放入

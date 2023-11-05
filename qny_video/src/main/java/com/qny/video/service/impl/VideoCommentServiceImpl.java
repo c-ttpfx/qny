@@ -2,6 +2,7 @@ package com.qny.video.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.qny.common.utils.RedisUtils;
 import com.qny.video.domain.dto.VideoCommentDTO;
 import com.qny.common.domain.model.UserModel;
 import com.qny.video.domain.model.VideoCommentModel;
@@ -30,6 +31,8 @@ public class VideoCommentServiceImpl extends ServiceImpl<VideoCommentMapper, Vid
     private UserFeginApi userFeginApi;
     @Resource
     private CommentLikeService commentLikeService;
+    @Resource
+    private RedisUtils redisUtils;
 
     @Override
     public boolean save(VideoCommentDTO videoCommentDTO) {

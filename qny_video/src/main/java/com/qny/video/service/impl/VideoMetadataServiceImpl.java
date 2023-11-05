@@ -1,6 +1,8 @@
 package com.qny.video.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.qny.common.utils.RedisUtils;
+import com.qny.video.constant.RedisConstant;
 import com.qny.video.domain.dto.VideoMetadataDTO;
 import com.qny.video.domain.model.VideoMetadataModel;
 import com.qny.video.domain.vo.VideoInfoVO;
@@ -33,6 +35,8 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
     private VideoCollectService videoCollectService;
     @Resource
     private VideoCommentService videoCommentService;
+    @Resource
+    private RedisUtils redisUtils;
 
     @Override
     public boolean save(VideoMetadataDTO vmd) {
@@ -52,7 +56,16 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
     public VideoInfoVO randomVideoInfo() {
         // todo 需要使用Redis优化,暂时就不加注释了，基本为测试代码
         VideoInfoVO videoInfoVO = new VideoInfoVO();
-        List<VideoMetadataModel> videoMetadataModels = videoMetadataMapper.selectList(null);
+        List<VideoMetadataModel> videoMetadataModels;
+        // 首先查看缓存
+        String key = RedisConstant.ALL_VIDEO_KEY;
+        if (redisUtils.hasKey(key)){
+            videoMetadataModels = (List<VideoMetadataModel>) redisUtils.get(key);
+        }else {
+            videoMetadataModels= videoMetadataMapper.selectList(null);
+            // 添加缓存
+            redisUtils.set(key,videoMetadataModels,600);
+        }
         Random random = new Random();
         int index= random.nextInt(videoMetadataModels.size());
         VideoMetadataModel videoMetadataModel = videoMetadataModels.get(index);
