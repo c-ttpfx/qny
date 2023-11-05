@@ -1,11 +1,9 @@
 package com.qny.video.domain.dto;
 
-import com.qny.video.enumeration.VideoSortTag;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author ttpfx
@@ -23,6 +21,6 @@ public class VideoMetadataDTO implements Serializable {
     private String resolution;  // 视频分辨率（例如：1920x1080）
     private Long fileSize;  // 文件大小（单位：字节）
     private String filePath;  // 文件路径（在服务器上的存储路径）
-    private List<VideoSortTag> tags;  // 标签（以逗号分隔的标签列表）
+    private String tags;  // 标签（以逗号分隔的标签列表）
     private String thumbnailPath;  // 缩略图路径（在服务器上的存储路径）
 }

@@ -112,6 +112,7 @@ public class QNYStoreUtil {
 
         // 生成上传凭证
         String token = auth.uploadToken(BUCKET_NAME, key, 3600, putPolicy);
+
         Map<String, String> map = new HashMap<>();
         map.put("token", token);
         map.put("key", key);
@@ -121,7 +122,7 @@ public class QNYStoreUtil {
     public static void main(String[] args) {
         try {
             // String localFilePath = "D:\\代码\\JAVA代码\\qny\\qny_video\\src\\main\\resources\\video\\1.mp4";
-            String localFilePath = "C:\\Users\\16071\\Desktop\\QQ录屏20231104221837.mp4";
+            String localFilePath = "C:\\Users\\16071\\Desktop\\QQ录屏20231105185901.mp4";
             String s = uploadAndTranscodeVideo(localFilePath);
             System.out.println(s);
         } catch (QiniuException ex) {

@@ -24,7 +24,6 @@ import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 /**
  * @author Knight
@@ -38,7 +37,7 @@ public class GatewayGlobalFilter implements GlobalFilter {
 
     // gateway放行URI列表
     public static String[]  excludeUris = new String[]{
-            "/user/login", "/user/register", "/video"};
+            "/user/login", "/user/register", "/video/"};
 
     // redis 过期时间
     private static final int overdueTime = 3600;
@@ -61,18 +60,16 @@ public class GatewayGlobalFilter implements GlobalFilter {
         * 2、如果需要网关拦截却没有token，返回错误信息。
         * 3、验证token，如果格式不正确，返回认证无效错误信息。
         * 4、验证token，如果token过期，返回认证过期错误信息。
+        * 5、如果是等出请求
         * */
+
         // 1、属于放行列表，直接放行
-        boolean flag = false;
-        for (String uri : excludeUris) {
-            if (url.startsWith(uri)){
-                flag = true;
-                break;
-            }
+        for (String uris : excludeUris) {
+            if (url.startsWith(uris)) return chain.filter(exchange); // 放行
         }
-        if (flag){
-            return chain.filter(exchange); // 放行
-        }
+        // if (Arrays.asList(excludeUris).contains(url)) {
+        //     return chain.filter(exchange); // 放行
+        // }
         // 如果不是登录直接验证 token
         String token = request.getHeaders().getFirst(JWTConstants.JWT_REQUEST_HEADER_KEY);
         if (!StringUtils.hasText(token)) {
@@ -93,16 +90,16 @@ public class GatewayGlobalFilter implements GlobalFilter {
             // 判断token是否已弃用
             String sig = redisUtils.get(AuthConstant.PREFIX_TOKEN_LAPSED + user.getName()) + "";
             if (token.equals(sig)) {
-                return authError(response, AuthReturnMessage.AUTH_EXCEPTION_LAPSED);
+                return authError(response, AuthReturnMessage.AUTH_EXCEPTION_DEPRECATED);
             }
 
             // 继续路由
             return chain.filter(exchange);
-        } catch (TokenExpiredException tokenExpiredException) {
-            // 处理过期的token
-            return expiredToken(tokenExpiredException, exchange, url, token);
+        } catch (TokenExpiredException tokenExpiredException) { // token过期报返回错误信息
+            log.error("Token 过期");
+            return authError(response, AuthReturnMessage.AUTH_EXCEPTION_EXPIRED);
         } catch (Exception e) { // token 格式不正确
-            log.error(e.getMessage(), e);
+            log.error("Token 格式不正确");
             return authError(response, AuthReturnMessage.AUTH_EXCEPTION_INVALID);
         }
     }
@@ -110,7 +107,8 @@ public class GatewayGlobalFilter implements GlobalFilter {
     /**
      * token过期的处理
      */
-    private Mono<Void> expiredToken(TokenExpiredException tokenExpiredException, ServerWebExchange exchange, String url, String token) {
+    private Mono<Void> expiredToken(TokenExpiredException tokenExpiredException,
+                                    ServerWebExchange exchange, String url, String token) {
         log.error(tokenExpiredException.getMessage(), tokenExpiredException);
         String userName = exchange.getRequest().getHeaders().getFirst(JWTConstants.JWT_REQUEST_KEY_USER_NAME);
         String userId = exchange.getRequest().getHeaders().getFirst(JWTConstants.JWT_REQUEST_KEY_ID);
@@ -123,7 +121,7 @@ public class GatewayGlobalFilter implements GlobalFilter {
         //判断 token 是否已弃用
         String sig = redisUtils.get(AuthConstant.PREFIX_TOKEN_LAPSED + userName) + "";
         if (token.equals(sig)) {
-            return authError(resp, AuthReturnMessage.AUTH_EXCEPTION_EXPIRED);
+            return authError(resp, AuthReturnMessage.AUTH_EXCEPTION_DEPRECATED);
         }
         //续签
         String newToken = JwtUtil.generateToken(userId, userName, expireMinutes);

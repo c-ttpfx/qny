@@ -5,6 +5,8 @@ import com.qny.video.domain.dto.VideoMetadataDTO;
 import com.qny.video.domain.model.VideoMetadataModel;
 import com.qny.video.domain.vo.VideoInfoVO;
 
+import java.util.List;
+
 /**
  * @author ttpfx
  * @since 2023/10/27
@@ -23,4 +25,6 @@ public interface VideoMetadataService extends IService<VideoMetadataModel> {
      * @return VideoInfoVO
      */
     VideoInfoVO randomVideoInfo();
+
+    List<VideoInfoVO> getPhysicalCultureVideo(String tag);
 }
