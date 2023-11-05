@@ -1,4 +1,4 @@
-package com.qny.gateway.configuration;
+package com.qny.common.configuration;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

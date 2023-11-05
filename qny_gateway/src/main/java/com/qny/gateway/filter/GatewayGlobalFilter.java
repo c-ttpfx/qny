@@ -55,6 +55,14 @@ public class GatewayGlobalFilter implements GlobalFilter {
         String url = request.getURI().getPath();
         System.out.println("接收到请求：" + url);
 
+        // 正常情况：
+        /*
+        * 1、用户登录，跳过网关拦截，进入userController，后端返回token给前端
+        * 2、如果需要网关拦截却没有token，返回错误信息。
+        * 3、验证token，如果格式不正确，返回认证无效错误信息。
+        * 4、验证token，如果token过期，返回认证过期错误信息。
+        * */
+
         // 1、属于放行列表，直接放行
         if (Arrays.asList(excludeUris).contains(url)) {
             return chain.filter(exchange); // 放行
@@ -87,9 +95,9 @@ public class GatewayGlobalFilter implements GlobalFilter {
         } catch (TokenExpiredException tokenExpiredException) {
             // 处理过期的token
             return expiredToken(tokenExpiredException, exchange, url, token);
-        } catch (Exception e) {
+        } catch (Exception e) { // token 格式不正确
             log.error(e.getMessage(), e);
-            return authError(response, AuthReturnMessage.AUTH_EXCEPTION_FAIL);
+            return authError(response, AuthReturnMessage.AUTH_EXCEPTION_INVALID);
         }
     }
 
@@ -113,7 +121,7 @@ public class GatewayGlobalFilter implements GlobalFilter {
         }
         //续签
         String newToken = JwtUtil.generateToken(userId, userName, expireMinutes);
-        return authSuccess(resp, new Result(HttpStatus.OK.value(), "token过期了", newToken));
+        return authSuccess(resp, new Result<Object>(HttpStatus.OK.value(), "token过期了", newToken));
     }
 
     /**
