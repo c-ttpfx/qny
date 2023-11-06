@@ -1,11 +1,14 @@
 package com.qny.common.utils;
 
+import com.qny.common.exception.GeneralException;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.Collection;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -72,7 +75,7 @@ public class RedisUtils {
             if (key.length == 1) {
                 redisTemplate.delete(key[0]);
             } else {
-                redisTemplate.delete((Collection<String>)CollectionUtils.arrayToList(key));
+                redisTemplate.delete((Collection<String>) CollectionUtils.arrayToList(key));
             }
 
         }
@@ -90,28 +93,34 @@ public class RedisUtils {
     public Object get(String key) {
         return key == null ? null : redisTemplate.opsForValue().get(key);
     }
+
     /**
      * 获取String
+     *
      * @param key 键
      * @return String
      */
-    public String getStr(String key){
-        return String.valueOf( get(key));
+    public String getStr(String key) {
+        return String.valueOf(get(key));
     }
+
     /**
      * 获取Long
+     *
      * @param key 键
      * @return Long
      */
-    public Long getLong(String key){
+    public Long getLong(String key) {
         return Long.parseLong(getStr(key));
     }
+
     /**
      * 获取Integer
+     *
      * @param key 键
      * @return Integer
      */
-    public Integer getInteger(String key){
+    public Integer getInteger(String key) {
         return Integer.parseInt(getStr(key));
     }
 
@@ -178,5 +187,31 @@ public class RedisUtils {
             throw new RuntimeException("递减因子必须大于0");
         }
         return redisTemplate.opsForValue().increment(key, -delta);
+    }
+
+    /**
+     * ZSet:添加数据
+     */
+    public boolean addZSet(String key, Object value, double score) {
+        if (score < 0) {
+            throw new GeneralException("有序集合分数需要大于0");
+        }
+        if (Boolean.FALSE.equals(redisTemplate.opsForZSet().add(key, value, score))) {
+            return false;
+        }
+        expire(key, 24 * 3600);
+        return true;
+    }
+
+    /**
+     * ZSet:删除数据
+     */
+    public void remZSet(String key, Object value) {
+        redisTemplate.opsForZSet().remove(key, value);
+    }
+
+    public Set<ZSetOperations.TypedTuple<Object>> getDataFromZSet(String key, int start, int end) {
+        ZSetOperations<String, Object> zSet = redisTemplate.opsForZSet();
+        return zSet.reverseRangeWithScores(key, start, end);
     }
 }

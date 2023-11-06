@@ -21,7 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private static final int expireMinutes = 3600; // token 过期时间, 单位：秒
+    private static final int expireMinutes = 24 * 3600; // token 过期时间, 单位：秒
     @Resource
     private UserService userService;
 

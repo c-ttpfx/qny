@@ -48,7 +48,6 @@ public class VideoController {
     @PostMapping("/save")
     public Result<Object> save(@Valid @RequestBody VideoMetadataRequest vmr,
                                BindingResult bindingResult) throws VerifyException {
-        // System.out.println(vmr.toString());
         ValidationUtil.check(bindingResult);
         VideoMetadataDTO vmd = new VideoMetadataDTO();
         BeanUtils.copyProperties(vmr, vmd);
@@ -69,8 +68,15 @@ public class VideoController {
      * 获取体育标签的视频
      * @return list
      */
-    @GetMapping("/getPhysicalCultureVideo")
+    @GetMapping("/physicalCultureVideo")
     public Result<List<VideoInfoVO>> getPhysicalCultureVideo() {
+        System.out.println("getPhysicalCultureVideo");
         return Result.ok(videoMetadataService.getPhysicalCultureVideo("体育"));
+    }
+
+    @GetMapping("/getVideoByTag")
+    public Result<List<VideoInfoVO>> getVideoByTag(@RequestParam String tag) {
+        System.out.println("获取到想要获取的标签：" + tag);
+        return Result.ok(videoMetadataService.getPhysicalCultureVideo(tag));
     }
 }

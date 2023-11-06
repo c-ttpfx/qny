@@ -91,7 +91,7 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
     public List<VideoInfoVO> getPhysicalCultureVideo(String tag) {
         LambdaQueryWrapper<VideoMetadataModel> wrapper = new LambdaQueryWrapper<>();
         wrapper.like(true, VideoMetadataModel::getTags, tag);
-        wrapper.last("limit 10");
+        wrapper.last("limit 6");
         // todo redis优化
         List<VideoMetadataModel> videoMetadataModels = videoMetadataMapper.selectList(wrapper);
         List<VideoInfoVO> res = videoMetadataModels.stream().map(metadata -> {

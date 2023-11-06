@@ -41,9 +41,9 @@ public class GatewayGlobalFilter implements GlobalFilter {
             "/video/image","/video/video/randomVideo"};
 
     // redis 过期时间
-    private static final int overdueTime = 3600;
+    private static final int overdueTime = 24 * 3600;
 
-    private static final int expireMinutes = 3600; // token 过期时间, 单位：秒
+    private static final int expireMinutes = 24 * 3600; // token 过期时间, 单位：秒
 
     @Resource
     private RedisUtils redisUtils;

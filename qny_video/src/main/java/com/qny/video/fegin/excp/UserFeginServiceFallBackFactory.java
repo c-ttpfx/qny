@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
+ * FeignClient 调用异常工厂配置类
  * @author ttpfx
  * @since 2023/11/1
  */
@@ -19,12 +20,12 @@ public class UserFeginServiceFallBackFactory implements FallbackFactory<UserFegi
         return new UserFeginApi() {
             @Override
             public Result<UserModel> getUserById(Long userId) {
-                return null;
+                return Result.fail();
             }
 
             @Override
             public Result<List<UserModel>> getUserByIds(Long[] userIds) {
-                return null;
+                return Result.fail();
             }
         };
     }
