@@ -28,7 +28,7 @@ public class VideoCommentShowVO implements Serializable {
     // 评论信息
     private String commentContent;
     // 评论时间
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private Date commentTime;
     // 评论地点
     private String commentRegion;

@@ -36,7 +36,7 @@ public class VideoMetadataRequest implements Serializable {
     private String uploaderId;  // 上传者ID
     @NotNull
     @JsonProperty("uploadTime")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private Date uploadTime;  // 上传时间
     @Min(1)
     private Long duration;  // 视频时长

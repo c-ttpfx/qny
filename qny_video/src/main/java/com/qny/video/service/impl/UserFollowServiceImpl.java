@@ -90,6 +90,7 @@ public class UserFollowServiceImpl extends ServiceImpl<UserFollowMapper, UserFol
             UserVO userVO = new UserVO();
             BeanUtils.copyProperties(userModel, userVO);
             userVO.setStatus("在线");
+            userVO.setUserId(String.valueOf(userModel.getUserId()));
             return userVO;
         }).collect(Collectors.toList());
         // 加入缓存

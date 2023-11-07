@@ -34,9 +34,14 @@ public class VideoController {
      * @return Result
      */
     @GetMapping("/randomVideo")
-    public Result<VideoInfoVO> getVideo() {
+    public Result<VideoInfoVO> randomVideo() {
         // todo 这里后续必须使用Redis优化，现在先让功能跑起来
         VideoInfoVO videoInfoVO = videoMetadataService.randomVideoInfo();
+        return Result.ok(videoInfoVO);
+    }
+    @GetMapping("/getVideo/{videoId}")
+    public Result<VideoInfoVO> getVideoById(@PathVariable("videoId") String videoId){
+        VideoInfoVO videoInfoVO = videoMetadataService.getVideoById(videoId);
         return Result.ok(videoInfoVO);
     }
 

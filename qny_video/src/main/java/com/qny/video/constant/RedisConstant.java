@@ -26,4 +26,10 @@ public interface RedisConstant {
 
     /** 用户所有关注信息KEY */
     public static String USER_ALL_FOLLOW_KEY = "user_all_follow_key-{%s}";
+
+    /** 所有分享给用户的视频KEY */
+    public static String ALL_USER_SHARE_KEY = "all_user_share_key-{%s}";
+
+    /** 所有分享给用户的视频KEY */
+    public static String VIDEO_INFO_KEY = "video_info_key-{%s}";
 }

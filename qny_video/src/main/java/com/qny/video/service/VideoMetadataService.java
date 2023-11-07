@@ -27,4 +27,11 @@ public interface VideoMetadataService extends IService<VideoMetadataModel> {
     VideoInfoVO randomVideoInfo();
 
     List<VideoInfoVO> getPhysicalCultureVideo(String tag);
+
+    /**
+     * 通过id返回视频信息
+     * @param videoId 视频id
+     * @return VideoInfoVO
+     */
+    VideoInfoVO getVideoById(String videoId);
 }

@@ -74,16 +74,8 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
         Random random = new Random();
         int index= random.nextInt(videoMetadataModels.size());
         VideoMetadataModel videoMetadataModel = videoMetadataModels.get(index);
-        videoInfoVO.setVideoId(String.valueOf(videoMetadataModel.getId()));
-        videoInfoVO.setVideoM3U8Url(videoMetadataModel.getFilePath());
-        videoInfoVO.setVideoTitle(videoMetadataModel.getTitle());
-        videoInfoVO.setPublishTime(videoMetadataModel.getUploadTime());
-        Long videoLikeCount = videoLikeService.getVideoLikeCount(Long.valueOf(videoInfoVO.getVideoId()));
-        videoInfoVO.setVideLikeCount(videoLikeCount);
-        Long videoCollectCount = videoCollectService.getVideoCollectCount(Long.valueOf(videoInfoVO.getVideoId()));
-        videoInfoVO.setVideoCollectCount(videoCollectCount);
-        Integer commentTotalCount = videoCommentService.getCommentTotalCount(Long.valueOf(videoInfoVO.getVideoId()), null);
-        videoInfoVO.setVideoCommentCount(Long.valueOf(commentTotalCount));
+        // 封装信息
+        modelToVO(videoMetadataModel, videoInfoVO);
         return videoInfoVO;
     }
 
@@ -101,9 +93,43 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
             videoInfoVO.setVideoTitle(metadata.getTitle());
             UserModel user = userFeginApi.getUserById(Long.parseLong(metadata.getUploaderId())).getData();
             videoInfoVO.setVideoAuthor(user.getName());
+            videoInfoVO.setUser(user);
             videoInfoVO.setPublishTime(metadata.getUploadTime());
             return videoInfoVO;
         }).collect(Collectors.toList());
         return res;
+    }
+
+    @Override
+    public VideoInfoVO getVideoById(String videoId) {
+        String key = String.format(RedisConstant.VIDEO_INFO_KEY,videoId);
+        // 首先查询是否命中缓存
+        if (redisUtils.hasKey(key)){
+            return (VideoInfoVO) redisUtils.get(key);
+        }
+        // 查询数据库
+        VideoMetadataModel videoMetadataModel = videoMetadataMapper.selectById(videoId);
+        VideoInfoVO videoInfoVO = new VideoInfoVO();
+        // 封装信息
+        modelToVO(videoMetadataModel, videoInfoVO);
+        // 加入缓存
+        redisUtils.set(key,videoInfoVO,600);
+        return videoInfoVO;
+    }
+
+    private void modelToVO(VideoMetadataModel videoMetadataModel, VideoInfoVO videoInfoVO) {
+        videoInfoVO.setVideoId(String.valueOf(videoMetadataModel.getId()));
+        videoInfoVO.setVideoM3U8Url(videoMetadataModel.getFilePath());
+        videoInfoVO.setVideoTitle(videoMetadataModel.getTitle());
+        videoInfoVO.setPublishTime(videoMetadataModel.getUploadTime());
+        Long videoLikeCount = videoLikeService.getVideoLikeCount(Long.valueOf(videoInfoVO.getVideoId()));
+        videoInfoVO.setVideLikeCount(videoLikeCount);
+        Long videoCollectCount = videoCollectService.getVideoCollectCount(Long.valueOf(videoInfoVO.getVideoId()));
+        videoInfoVO.setVideoCollectCount(videoCollectCount);
+        Integer commentTotalCount = videoCommentService.getCommentTotalCount(Long.valueOf(videoInfoVO.getVideoId()), null);
+        videoInfoVO.setVideoCommentCount(Long.valueOf(commentTotalCount));
+        if (videoMetadataModel.getUploaderId() == null)videoMetadataModel.setUploaderId("0");
+        UserModel userModel = userFeginApi.getUserById(Long.valueOf(videoMetadataModel.getUploaderId())).getData();
+        videoInfoVO.setUser(userModel);
     }
 }

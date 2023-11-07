@@ -1,5 +1,6 @@
 package com.qny.video.domain.vo;
 
+import com.qny.common.domain.model.UserModel;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -28,6 +29,8 @@ public class VideoInfoVO implements Serializable {
     private Long videoCollectCount;
     // 作者
     private String videoAuthor;
+    // 上传用户信息
+    private UserModel user;
     // 视频标题
     private String videoTitle;
     // 视频上传日期

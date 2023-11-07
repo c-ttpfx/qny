@@ -24,4 +24,6 @@ public class VideoShareModel implements Serializable {
     private Byte hasRead;
     // 分享时间
     private Long shareTime;
+    // 视频封面url
+    private String videoCover;
 }
