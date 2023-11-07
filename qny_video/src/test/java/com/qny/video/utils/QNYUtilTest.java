@@ -24,12 +24,13 @@ public class QNYUtilTest {
     @Test
     public void addVideo() {
         String prefix = "http://s32r2vddr.hn-bkt.clouddn.com/";
-        FileUtils.readFiles("D:\\资料\\学习资料\\视频", path->{
+        FileUtils.readFiles("C:\\Users\\14722\\Desktop\\体育", path->{
             String filePath = path.toString();
             try {
                 String s = QNYStoreUtil.uploadAndTranscodeVideo(filePath);
                 VideoMetadataModel videoMetadata = new VideoMetadataModel();
                 videoMetadata.setFilePath(prefix+s);
+                videoMetadata.setUploaderId("1721635672898420738");
                 videoMetadataService.save(videoMetadata);
             } catch (QiniuException e) {
                 throw new RuntimeException(e);
