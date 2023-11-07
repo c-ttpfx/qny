@@ -21,7 +21,7 @@
 
 * **架构设计文档地址为**：https://eqrrz1hsljx.feishu.cn/docx/QfuUdB0lyoFQzQxScwPcXxShnLg
 
-* **视频介绍地址为**：http://s32r2vddr.hn-bkt.clouddn.com/2023/11/7/21/19/1699363170900--QQ%E5%BD%95%E5%B1%8F20231104221837.mp4
+* **视频介绍地址为**：http://s32r2vddr.hn-bkt.clouddn.com/11%E6%9C%887%E6%97%A5%20%281%29.mp4
 
 # 安装说明
 
