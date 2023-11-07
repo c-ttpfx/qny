@@ -21,7 +21,7 @@
 
 * **架构设计文档地址为**：https://eqrrz1hsljx.feishu.cn/docx/QfuUdB0lyoFQzQxScwPcXxShnLg
 
-* **视频介绍地址为**：
+* **视频介绍地址为**：http://s32r2vddr.hn-bkt.clouddn.com/2023/11/7/21/19/1699363170900--QQ%E5%BD%95%E5%B1%8F20231104221837.mp4
 
 # 安装说明
 
@@ -128,10 +128,13 @@ git clone https://github.com/c-ttpfx/qny.git
 
 > 热门视频
 
+![image](https://github.com/c-ttpfx/qny/assets/120931155/33370667-f04a-4e8d-ab26-5bb2cf6b1d95)
+单独打开：
+![image](https://github.com/c-ttpfx/qny/assets/120931155/e37d14b1-c150-4758-8b6a-4167b570ee05)
 
 
 > 其它标签页
-
+![image](https://github.com/c-ttpfx/qny/assets/120931155/a7054573-b2ec-4a0a-89d3-6c52a3002287)
 
 
 > 视频预览功能
@@ -140,6 +143,7 @@ git clone https://github.com/c-ttpfx/qny.git
 
 > 搜索功能
 
+![image](https://github.com/c-ttpfx/qny/assets/120931155/dcc3e304-2fcc-4b3c-828e-30131cee0eaf)
 
 
 > 作品上传
