@@ -28,7 +28,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * @author Knight
  * @since 2023/10/29
- *
+ * <p>
  * 全局过滤器
  **/
 @Component
@@ -36,9 +36,9 @@ import java.nio.charset.StandardCharsets;
 public class GatewayGlobalFilter implements GlobalFilter {
 
     // gateway放行URI列表
-    public static String[]  excludeUris = new String[]{
+    public static String[] excludeUris = new String[]{
             "/user/login", "/user/register",
-            "/video/image","/video/video/randomVideo"};
+            "/video/image", "/video/video/randomVideo"};
 
     // redis 过期时间
     private static final int overdueTime = 24 * 3600;
@@ -57,12 +57,12 @@ public class GatewayGlobalFilter implements GlobalFilter {
 
         // 正常情况：
         /*
-        * 1、用户登录，跳过网关拦截，进入userController，后端返回token给前端
-        * 2、如果需要网关拦截却没有token，返回错误信息。
-        * 3、验证token，如果格式不正确，返回认证无效错误信息。
-        * 4、验证token，如果token过期，返回认证过期错误信息。
-        * 5、如果是等出请求
-        * */
+         * 1、用户登录，跳过网关拦截，进入userController，后端返回token给前端
+         * 2、如果需要网关拦截却没有token，返回错误信息。
+         * 3、验证token，如果格式不正确，返回认证无效错误信息。
+         * 4、验证token，如果token过期，返回认证过期错误信息。
+         * 5、如果是等出请求
+         * */
 
         // 1、属于放行列表，直接放行
         for (String uris : excludeUris) {
@@ -79,7 +79,7 @@ public class GatewayGlobalFilter implements GlobalFilter {
 
         try {
 
-            //校验token并解析token
+            // 校验token并解析token
             UserModel user = JwtUtil.decode(token);
 
             // 登出，将当前 token 放入 redis 表示弃用
@@ -115,16 +115,16 @@ public class GatewayGlobalFilter implements GlobalFilter {
         String userId = exchange.getRequest().getHeaders().getFirst(JWTConstants.JWT_REQUEST_KEY_ID);
         ServerHttpResponse resp = exchange.getResponse();
 
-        //登出
+        // 登出
         if (url.equals(AuthConstant.URL_LOGOUT)) {
             return authError(resp, AuthReturnMessage.AUTH_EXCEPTION_EXPIRED);
         }
-        //判断 token 是否已弃用
+        // 判断 token 是否已弃用
         String sig = redisUtils.get(AuthConstant.PREFIX_TOKEN_LAPSED + userName) + "";
         if (token.equals(sig)) {
             return authError(resp, AuthReturnMessage.AUTH_EXCEPTION_DEPRECATED);
         }
-        //续签
+        // 续签
         String newToken = JwtUtil.generateToken(userId, userName, expireMinutes);
         return authSuccess(resp, new Result<Object>(HttpStatus.OK.value(), "token过期了", newToken));
     }

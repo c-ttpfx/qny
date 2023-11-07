@@ -1,5 +1,6 @@
 package com.qny.video.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qny.common.utils.RedisUtils;
@@ -10,6 +11,7 @@ import com.qny.video.service.VideoLikeService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author ttpfx
@@ -99,5 +101,12 @@ public class VideoLikeServiceImpl extends ServiceImpl<VideoLikeMapper, VideoLike
         // 加入缓存
         redisUtils.set(key,flag,600);
         return flag;
+    }
+
+    @Override
+    public List<VideoLikeModel> getVideoIds(Long userId) {
+        LambdaQueryWrapper<VideoLikeModel> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(userId != null, VideoLikeModel::getUserId, userId);
+        return videoLikeMapper.selectList(wrapper);
     }
 }

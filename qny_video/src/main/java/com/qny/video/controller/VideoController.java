@@ -76,12 +76,26 @@ public class VideoController {
     @GetMapping("/physicalCultureVideo")
     public Result<List<VideoInfoVO>> getPhysicalCultureVideo() {
         System.out.println("getPhysicalCultureVideo");
-        return Result.ok(videoMetadataService.getPhysicalCultureVideo("体育"));
+        return Result.ok(videoMetadataService.getVideoInfoByTag("体育"));
     }
 
+    /**
+     * 获取指定标签的值
+     */
     @GetMapping("/getVideoByTag")
     public Result<List<VideoInfoVO>> getVideoByTag(@RequestParam String tag) {
         System.out.println("获取到想要获取的标签：" + tag);
-        return Result.ok(videoMetadataService.getPhysicalCultureVideo(tag));
+        return Result.ok(videoMetadataService.getVideoInfoByTag(tag));
+    }
+
+    @GetMapping("/search")
+    public Result<List<VideoInfoVO>> getSearchVideo(@RequestParam String search) {
+        return Result.ok(videoMetadataService.getVideoInfoByTitle(search));
+    }
+
+    @GetMapping("/getSelfVideo")
+    public Result<List<VideoInfoVO>> getVideoByUserID() {
+        String userID = JwtUtil.getUserID();
+        return Result.ok(videoMetadataService.getVideoInfoByUserID(userID));
     }
 }

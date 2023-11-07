@@ -80,7 +80,7 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
     }
 
     @Override
-    public List<VideoInfoVO> getPhysicalCultureVideo(String tag) {
+    public List<VideoInfoVO> getVideoInfoByTag(String tag) {
         LambdaQueryWrapper<VideoMetadataModel> wrapper = new LambdaQueryWrapper<>();
         wrapper.like(true, VideoMetadataModel::getTags, tag);
         wrapper.last("limit 6");
@@ -117,6 +117,46 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
         return videoInfoVO;
     }
 
+    @Override
+    public List<VideoInfoVO> getVideoInfoByTitle(String search) {
+        LambdaQueryWrapper<VideoMetadataModel> wrapper = new LambdaQueryWrapper<>();
+        wrapper.like(search != null, VideoMetadataModel::getTitle, search);
+        wrapper.last("limit 6");
+        List<VideoMetadataModel> videoMetadataModels = videoMetadataMapper.selectList(wrapper);
+        List<VideoInfoVO> res = videoMetadataModels.stream().map(metadata -> {
+            VideoInfoVO videoInfoVO = new VideoInfoVO();
+            videoInfoVO.setVideoId(metadata.getId().toString());
+            videoInfoVO.setVideoM3U8Url(metadata.getFilePath());
+            videoInfoVO.setVideoTitle(metadata.getTitle());
+            UserModel user = userFeginApi.getUserById(Long.parseLong(metadata.getUploaderId())).getData();
+            videoInfoVO.setVideoAuthor(user.getName());
+            videoInfoVO.setUser(user);
+            videoInfoVO.setPublishTime(metadata.getUploadTime());
+            return videoInfoVO;
+        }).collect(Collectors.toList());
+        return res;
+    }
+
+    @Override
+    public List<VideoInfoVO> getVideoInfoByUserID(String userId) {
+        LambdaQueryWrapper<VideoMetadataModel> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(userId != null, VideoMetadataModel::getUploaderId, userId);
+        wrapper.last("limit 6");
+        List<VideoMetadataModel> videoMetadataModels = videoMetadataMapper.selectList(wrapper);
+        List<VideoInfoVO> res = videoMetadataModels.stream().map(metadata -> {
+            VideoInfoVO videoInfoVO = new VideoInfoVO();
+            videoInfoVO.setVideoId(metadata.getId().toString());
+            videoInfoVO.setVideoM3U8Url(metadata.getFilePath());
+            videoInfoVO.setVideoTitle(metadata.getTitle());
+            UserModel user = userFeginApi.getUserById(Long.parseLong(metadata.getUploaderId())).getData();
+            videoInfoVO.setVideoAuthor(user.getName());
+            videoInfoVO.setUser(user);
+            videoInfoVO.setPublishTime(metadata.getUploadTime());
+            return videoInfoVO;
+        }).collect(Collectors.toList());
+        return res;
+    }
+
     private void modelToVO(VideoMetadataModel videoMetadataModel, VideoInfoVO videoInfoVO) {
         videoInfoVO.setVideoId(String.valueOf(videoMetadataModel.getId()));
         videoInfoVO.setVideoM3U8Url(videoMetadataModel.getFilePath());
@@ -132,4 +172,6 @@ public class VideoMetadataServiceImpl extends ServiceImpl<VideoMetadataMapper, V
         UserModel userModel = userFeginApi.getUserById(Long.valueOf(videoMetadataModel.getUploaderId())).getData();
         videoInfoVO.setUser(userModel);
     }
+
+
 }

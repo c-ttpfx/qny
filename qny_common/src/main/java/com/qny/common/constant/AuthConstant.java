@@ -8,5 +8,5 @@ package com.qny.common.constant;
 public class AuthConstant {
     public final static String PREFIX_TOKEN_LAPSED = "token_lapsed_";
 
-    public final static String URL_LOGOUT = "/user/loginOut";
+    public final static String URL_LOGOUT = "/user/logout";
 }

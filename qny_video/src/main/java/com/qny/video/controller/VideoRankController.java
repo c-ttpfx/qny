@@ -31,8 +31,8 @@ public class VideoRankController {
     @RequestMapping("/addVideoRankData")
     public Result<Object> addVideoRankData() {
         ArrayList<Long> list = new ArrayList<>();
-        list.add(1717835677724348418L);
-        list.add(1717835721911341058L);
+        list.add(1717836001797246988L);
+        list.add(1717836001797247021L);
         list.add(1717835771882278914L);
         boolean b = videoRankService.setVideoRank(list);
         return Result.ok();

@@ -3,6 +3,8 @@ package com.qny.video.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.qny.video.domain.model.VideoLikeModel;
 
+import java.util.List;
+
 /**
  * @author ttpfx
  * @since 2023/10/29
@@ -40,5 +42,5 @@ public interface VideoLikeService extends IService<VideoLikeModel> {
      */
     Boolean isLike(Long videoId, Long userId);
 
-
+    List<VideoLikeModel> getVideoIds(Long userId);
 }

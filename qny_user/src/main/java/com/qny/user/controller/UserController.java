@@ -1,6 +1,7 @@
 package com.qny.user.controller;
 
 import com.qiniu.util.Md5;
+import com.qny.user.domain.vo.UserVO;
 import com.qny.user.service.UserService;
 import com.qny.common.domain.entity.Result;
 import com.qny.common.domain.model.UserModel;
@@ -11,6 +12,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -37,7 +39,19 @@ public class UserController {
         // 生成JWT令牌
         String token = JwtUtil.generateToken(userDB, expireMinutes);
 
-        return Result.ok(token);
+        UserVO userVO = UserVO.builder()
+                .userId(userDB.getUserId().toString())
+                .name(userDB.getName())
+                .age(userDB.getAge())
+                .gender(userDB.getGender())
+                .icon(userDB.getIcon())
+                .build();
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("token", token);
+        map.put("user", userVO);
+
+        return Result.ok(map);
     }
 
     @PostMapping("/register")
