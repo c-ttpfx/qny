@@ -1,0 +1,88 @@
+2023-11-06 00:15:02,810 INFO [PUSH-SUCC] 536ms, all delay time 1050ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2023-11-06 00:15:02,834 INFO [PUSH-SUCC] 48ms, all delay time 1074ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2023-11-06 00:15:40,696 INFO [PUSH-SUCC] 35ms, all delay time 606ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2023-11-06 00:24:20,764 INFO [PUSH-SUCC] 18ms, all delay time 565ms, SLA 565ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 00:24:20,778 INFO [PUSH-SUCC] 31ms, all delay time 633ms, SLA 633ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 11:05:22,756 INFO [PUSH-SUCC] 297ms, all delay time 861ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2023-11-06 11:05:29,261 INFO [PUSH-SUCC] 4ms, all delay time 582ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2023-11-06 11:09:42,332 INFO [PUSH-SUCC] 13ms, all delay time 593ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2023-11-06 11:15:40,209 INFO [PUSH-SUCC] 11ms, all delay time 538ms, SLA 538ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 11:16:20,584 INFO [PUSH-SUCC] 12ms, all delay time 549ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2023-11-06 11:16:22,224 INFO [PUSH-SUCC] 4ms, all delay time 548ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=3}, originalSize=1, DataSize=1
+
+2023-11-06 11:19:27,480 INFO [PUSH-SUCC] 9ms, all delay time 532ms, SLA 532ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=4}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 11:19:42,046 INFO [PUSH-SUCC] 12ms, all delay time 550ms, SLA 550ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=5}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 11:24:34,792 INFO [PUSH-SUCC] 17ms, all delay time 531ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2023-11-06 11:24:34,794 INFO [PUSH-SUCC] 19ms, all delay time 534ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=5}, originalSize=1, DataSize=1
+
+2023-11-06 11:24:36,872 INFO [PUSH-SUCC] 13ms, all delay time 586ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2023-11-06 11:40:28,610 INFO [PUSH-SUCC] 10ms, all delay time 596ms, SLA 596ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=6}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 11:40:42,725 INFO [PUSH-SUCC] 9ms, all delay time 533ms, SLA 533ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=7}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 11:45:09,845 INFO [PUSH-SUCC] 9ms, all delay time 585ms, SLA 585ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=8}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 11:45:23,175 INFO [PUSH-SUCC] 12ms, all delay time 536ms, SLA 536ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=9}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 13:50:45,906 INFO [PUSH-SUCC] 11ms, all delay time 528ms, SLA 528ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=10}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 13:50:46,011 INFO [PUSH-SUCC] 8ms, all delay time 611ms, SLA 611ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 13:54:26,791 INFO [PUSH-SUCC] 13ms, all delay time 607ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=11}, originalSize=1, DataSize=1
+
+2023-11-06 13:54:33,887 INFO [PUSH-SUCC] 3ms, all delay time 570ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=5}, originalSize=1, DataSize=1
+
+2023-11-06 13:55:17,099 INFO [PUSH-SUCC] 15ms, all delay time 524ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=5}, originalSize=1, DataSize=1
+
+2023-11-06 14:50:20,172 INFO [PUSH-SUCC] 10ms, all delay time 558ms, SLA 558ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=12}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 14:50:33,833 INFO [PUSH-SUCC] 9ms, all delay time 533ms, SLA 533ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=13}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 14:53:37,476 INFO [PUSH-SUCC] 15ms, all delay time 624ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=5}, originalSize=1, DataSize=1
+
+2023-11-06 15:10:45,344 INFO [PUSH-SUCC] 9ms, all delay time 587ms, SLA 587ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=14}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 15:10:58,365 INFO [PUSH-SUCC] 8ms, all delay time 599ms, SLA 599ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=15}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 15:11:14,877 INFO [PUSH-SUCC] 14ms, all delay time 606ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=5}, originalSize=1, DataSize=1
+
+2023-11-06 17:20:18,833 INFO [PUSH-SUCC] 23ms, all delay time 630ms, SLA 630ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=16}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 17:20:34,285 INFO [PUSH-SUCC] 8ms, all delay time 594ms, SLA 594ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=17}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 17:24:50,560 INFO [PUSH-SUCC] 9ms, all delay time 527ms, SLA 527ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=18}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 17:25:04,329 INFO [PUSH-SUCC] 9ms, all delay time 596ms, SLA 596ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=19}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 17:28:15,617 INFO [PUSH-SUCC] 8ms, all delay time 514ms, SLA 514ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=20}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 17:28:29,264 INFO [PUSH-SUCC] 11ms, all delay time 534ms, SLA 534ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=21}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 17:56:29,132 INFO [PUSH-SUCC] 9ms, all delay time 566ms, SLA 566ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=22}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 17:56:43,682 INFO [PUSH-SUCC] 7ms, all delay time 551ms, SLA 551ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=23}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 18:04:26,717 INFO [PUSH-SUCC] 9ms, all delay time 536ms, SLA 536ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=24}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 18:04:40,601 INFO [PUSH-SUCC] 9ms, all delay time 602ms, SLA 602ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=25}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-06 18:35:56,586 INFO [PUSH-SUCC] 13ms, all delay time 529ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=5}, originalSize=1, DataSize=1
+
+2023-11-06 19:15:52,351 INFO [PUSH-SUCC] 8ms, all delay time 512ms, SLA 512ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=6}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-06 19:15:52,360 INFO [PUSH-SUCC] 17ms, all delay time 538ms, SLA 538ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=26}, originalSize=0, DataSize=0, target=192.168.56.1
+

@@ -1,0 +1,144 @@
+2023-11-03 14:15:26,807 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-11-03 14:15:26,807 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-11-03 14:15:26,808 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-11-03 14:15:26,808 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-11-03 14:15:27,878 INFO Load instance extension handler []
+
+2023-11-03 14:16:17,045 INFO Client connection 1698992176807_127.0.0.1_4592 connect
+
+2023-11-03 14:16:17,124 INFO Client connection 1698992177047_127.0.0.1_4593 connect
+
+2023-11-03 14:16:17,168 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=0}, 1698992176807_127.0.0.1_4592
+
+2023-11-03 14:16:17,239 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=0}, 1698992177047_127.0.0.1_4593
+
+2023-11-03 14:16:18,553 INFO Client connection 1698992178460_127.0.0.1_4625 connect
+
+2023-11-03 14:16:18,681 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=0}, 1698992178460_127.0.0.1_4625
+
+2023-11-03 15:42:56,794 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, 1698992176807_127.0.0.1_4592
+
+2023-11-03 15:42:56,805 INFO Client connection 1698992176807_127.0.0.1_4592 disconnect, remove instances and subscribers
+
+2023-11-03 15:43:08,523 INFO Client connection 1698997388340_127.0.0.1_9263 connect
+
+2023-11-03 15:43:08,635 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=2}, 1698997388340_127.0.0.1_9263
+
+2023-11-03 16:26:28,690 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=1}, 1698992178460_127.0.0.1_4625
+
+2023-11-03 16:26:28,696 INFO Client connection 1698992178460_127.0.0.1_4625 disconnect, remove instances and subscribers
+
+2023-11-03 16:26:42,093 INFO Client connection 1699000002023_127.0.0.1_13529 connect
+
+2023-11-03 16:26:42,215 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=2}, 1699000002023_127.0.0.1_13529
+
+2023-11-03 16:30:17,131 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=3}, 1699000002023_127.0.0.1_13529
+
+2023-11-03 16:30:17,139 INFO Client connection 1699000002023_127.0.0.1_13529 disconnect, remove instances and subscribers
+
+2023-11-03 16:30:30,839 INFO Client connection 1699000230769_127.0.0.1_14118 connect
+
+2023-11-03 16:30:30,957 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=4}, 1699000230769_127.0.0.1_14118
+
+2023-11-03 16:39:58,015 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=5}, 1699000230769_127.0.0.1_14118
+
+2023-11-03 16:39:58,022 INFO Client connection 1699000230769_127.0.0.1_14118 disconnect, remove instances and subscribers
+
+2023-11-03 16:40:11,263 INFO Client connection 1699000811192_127.0.0.1_1045 connect
+
+2023-11-03 16:40:11,386 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=6}, 1699000811192_127.0.0.1_1045
+
+2023-11-03 16:48:33,980 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=7}, 1699000811192_127.0.0.1_1045
+
+2023-11-03 16:48:33,988 INFO Client connection 1699000811192_127.0.0.1_1045 disconnect, remove instances and subscribers
+
+2023-11-03 16:48:47,503 INFO Client connection 1699001327433_127.0.0.1_1920 connect
+
+2023-11-03 16:48:47,624 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=8}, 1699001327433_127.0.0.1_1920
+
+2023-11-03 16:50:11,347 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=9}, 1699001327433_127.0.0.1_1920
+
+2023-11-03 16:50:11,355 INFO Client connection 1699001327433_127.0.0.1_1920 disconnect, remove instances and subscribers
+
+2023-11-03 16:50:25,422 INFO Client connection 1699001425351_127.0.0.1_13267 connect
+
+2023-11-03 16:50:25,542 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=10}, 1699001425351_127.0.0.1_13267
+
+2023-11-03 16:55:32,143 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=11}, 1699001425351_127.0.0.1_13267
+
+2023-11-03 16:55:32,150 INFO Client connection 1699001425351_127.0.0.1_13267 disconnect, remove instances and subscribers
+
+2023-11-03 16:55:45,409 INFO Client connection 1699001745341_127.0.0.1_13166 connect
+
+2023-11-03 16:55:45,532 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=12}, 1699001745341_127.0.0.1_13166
+
+2023-11-03 17:51:49,603 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=3}, 1698997388340_127.0.0.1_9263
+
+2023-11-03 17:51:49,610 INFO Client connection 1698997388340_127.0.0.1_9263 disconnect, remove instances and subscribers
+
+2023-11-03 17:51:49,688 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=1}, 1698992177047_127.0.0.1_4593
+
+2023-11-03 17:51:49,724 INFO Client connection 1698992177047_127.0.0.1_4593 disconnect, remove instances and subscribers
+
+2023-11-03 17:51:51,639 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=13}, 1699001745341_127.0.0.1_13166
+
+2023-11-03 17:51:51,646 INFO Client connection 1699001745341_127.0.0.1_13166 disconnect, remove instances and subscribers
+
+2023-11-03 19:21:08,787 WARN namespace : public, [DEFAULT_GROUP@@spring-cloud-gateway] services are automatically cleaned
+
+2023-11-03 19:21:08,787 WARN namespace : public, [DEFAULT_GROUP@@userService] services are automatically cleaned
+
+2023-11-03 19:21:08,787 WARN namespace : public, [DEFAULT_GROUP@@videoService] services are automatically cleaned
+
+2023-11-03 19:22:28,894 INFO Client connection 1699010548697_127.0.0.1_3511 connect
+
+2023-11-03 19:22:29,006 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=0}, 1699010548697_127.0.0.1_3511
+
+2023-11-03 19:22:31,725 INFO Client connection 1699010551649_127.0.0.1_3540 connect
+
+2023-11-03 19:22:31,837 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=0}, 1699010551649_127.0.0.1_3540
+
+2023-11-03 19:22:36,731 INFO Client connection 1699010556651_127.0.0.1_3599 connect
+
+2023-11-03 19:22:36,848 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=0}, 1699010556651_127.0.0.1_3599
+
+2023-11-03 19:48:06,267 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, 1699010548697_127.0.0.1_3511
+
+2023-11-03 19:48:06,276 INFO Client connection 1699010548697_127.0.0.1_3511 disconnect, remove instances and subscribers
+
+2023-11-03 19:48:17,899 INFO Client connection 1699012097700_127.0.0.1_5367 connect
+
+2023-11-03 19:48:18,011 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=2}, 1699012097700_127.0.0.1_5367
+
+2023-11-03 21:19:43,237 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=1}, 1699010551649_127.0.0.1_3540
+
+2023-11-03 21:19:43,246 INFO Client connection 1699010551649_127.0.0.1_3540 disconnect, remove instances and subscribers
+
+2023-11-03 21:19:57,986 INFO Client connection 1699017597896_127.0.0.1_10093 connect
+
+2023-11-03 21:19:58,101 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=2}, 1699017597896_127.0.0.1_10093
+
+2023-11-03 21:26:14,539 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=3}, 1699017597896_127.0.0.1_10093
+
+2023-11-03 21:26:14,550 INFO Client connection 1699017597896_127.0.0.1_10093 disconnect, remove instances and subscribers
+
+2023-11-03 21:26:28,707 INFO Client connection 1699017988632_127.0.0.1_10504 connect
+
+2023-11-03 21:26:28,822 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=4}, 1699017988632_127.0.0.1_10504
+
+2023-11-03 21:52:27,285 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=3}, 1699012097700_127.0.0.1_5367
+
+2023-11-03 21:52:27,292 INFO Client connection 1699012097700_127.0.0.1_5367 disconnect, remove instances and subscribers
+
+2023-11-03 21:52:27,367 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=5}, 1699017988632_127.0.0.1_10504
+
+2023-11-03 21:52:27,375 INFO Client connection 1699017988632_127.0.0.1_10504 disconnect, remove instances and subscribers
+
+2023-11-03 21:52:29,319 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=1}, 1699010556651_127.0.0.1_3599
+
+2023-11-03 21:52:29,327 INFO Client connection 1699010556651_127.0.0.1_3599 disconnect, remove instances and subscribers
+

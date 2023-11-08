@@ -1,0 +1,22 @@
+2023-11-02 01:13:44,296 INFO [PUSH-SUCC] 780ms, all delay time 1320ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=7}, originalSize=1, DataSize=1
+
+2023-11-02 15:12:05,558 INFO [PUSH-SUCC] 312ms, all delay time 884ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=3}, originalSize=1, DataSize=1
+
+2023-11-02 15:13:46,162 INFO [PUSH-SUCC] 12ms, all delay time 587ms, SLA 587ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=4}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-02 15:13:57,828 INFO [PUSH-SUCC] 8ms, all delay time 518ms, SLA 518ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=5}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-02 15:15:36,314 INFO [PUSH-SUCC] 10ms, all delay time 614ms, SLA 614ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=6}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-02 15:15:54,321 INFO [PUSH-SUCC] 9ms, all delay time 576ms, SLA 577ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=7}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-02 15:16:16,472 INFO [PUSH-SUCC] 8ms, all delay time 575ms, SLA 575ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=8}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-02 15:26:10,865 INFO [PUSH-SUCC] 11ms, all delay time 540ms, SLA 540ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=192.168.56.1
+
+2023-11-02 15:35:13,194 INFO [PUSH-SUCC] 3ms, all delay time 526ms for subscriber 192.168.56.1, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=3}, originalSize=1, DataSize=1
+
+2023-11-02 21:25:24,392 INFO [PUSH-SUCC] 9ms, all delay time 596ms, SLA 597ms, Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=2}, originalSize=0, DataSize=0, target=192.168.56.1
+
+2023-11-02 21:25:24,401 INFO [PUSH-SUCC] 18ms, all delay time 535ms, SLA 535ms, Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=4}, originalSize=0, DataSize=0, target=192.168.56.1
+

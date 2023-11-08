@@ -1,0 +1,12 @@
+Java HotSpot(TM) 64-Bit Server VM (25.351-b10) for windows-amd64 JRE (1.8.0_351-b10), built on Sep 15 2022 02:58:06 by "java_re" with MS VC++ 15.9 (VS2017)
+Memory: 4k page, physical 32946992k(21661436k free), swap 37927728k(26583208k free)
+CommandLine flags: -XX:CompressedClassSpaceSize=327155712 -XX:GCLogFileSize=104857600 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=D:/JavaSoftware/nacos-server-2.2.3/nacos/logs/java_heapdump.hprof -XX:InitialHeapSize=2147483648 -XX:MaxHeapSize=2147483648 -XX:MaxMetaspaceSize=335544320 -XX:MaxNewSize=1073741824 -XX:MetaspaceSize=134217728 -XX:NewSize=1073741824 -XX:NumberOfGCLogFiles=10 -XX:-OmitStackTraceInFastThrow -XX:+PrintGC -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseGCLogFileRotation -XX:-UseLargePages -XX:-UseLargePagesIndividualAllocation -XX:+UseParallelGC 
+Heap
+ PSYoungGen      total 917504K, used 330307K [0x00000000c0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 786432K, 42% used [0x00000000c0000000,0x00000000d4290e98,0x00000000f0000000)
+  from space 131072K, 0% used [0x00000000f8000000,0x00000000f8000000,0x0000000100000000)
+  to   space 131072K, 0% used [0x00000000f0000000,0x00000000f0000000,0x00000000f8000000)
+ ParOldGen       total 1048576K, used 0K [0x0000000080000000, 0x00000000c0000000, 0x00000000c0000000)
+  object space 1048576K, 0% used [0x0000000080000000,0x0000000080000000,0x00000000c0000000)
+ Metaspace       used 13378K, capacity 14062K, committed 14336K, reserved 1062912K
+  class space    used 1621K, capacity 1769K, committed 1792K, reserved 1048576K

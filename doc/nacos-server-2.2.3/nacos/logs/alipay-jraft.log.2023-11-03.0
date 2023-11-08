@@ -1,0 +1,236 @@
+2023-11-03 14:15:26,890 INFO SPI service [com.alipay.sofa.jraft.JRaftServiceFactory - com.alipay.sofa.jraft.core.DefaultJRaftServiceFactory] loading.
+
+2023-11-03 14:15:26,980 INFO SPI service [com.alipay.sofa.jraft.rpc.RaftRpcFactory - com.alipay.sofa.jraft.rpc.impl.GrpcRaftRpcFactory] loading.
+
+2023-11-03 14:15:27,091 INFO SPI service [com.alipay.sofa.jraft.util.timer.RaftTimerFactory - com.alipay.sofa.jraft.util.timer.DefaultRaftTimerFactory] loading.
+
+2023-11-03 14:15:27,094 INFO The number of active nodes increment to 1.
+
+2023-11-03 14:15:27,498 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 0 to 5, cost 0 ms.
+
+2023-11-03 14:15:27,507 INFO Starts FSMCaller successfully.
+
+2023-11-03 14:15:27,522 INFO Loading snapshot, meta=last_included_index: 4
+last_included_term: 4
+peers: "192.168.56.1:7848"
+.
+
+2023-11-03 14:15:27,585 INFO Node <naming_persistent_service_v2/192.168.56.1:7848> onSnapshotLoadDone, last_included_index: 4
+last_included_term: 4
+peers: "192.168.56.1:7848"
+
+
+2023-11-03 14:15:27,585 INFO Node <naming_persistent_service_v2/192.168.56.1:7848> target priority value has changed from: 0, to: -1.
+
+2023-11-03 14:15:27,587 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 5 to 5, cost 0 ms.
+
+2023-11-03 14:15:27,593 INFO Node <naming_persistent_service_v2/192.168.56.1:7848> init, term=4, lastLogId=LogId [index=4, term=4], conf=192.168.56.1:7848, oldConf=.
+
+2023-11-03 14:15:27,594 INFO Node <naming_persistent_service_v2/192.168.56.1:7848> start vote and grant vote self, term=4.
+
+2023-11-03 14:15:27,610 WARN Unable to fsync directory D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\meta-data on windows.
+
+2023-11-03 14:15:27,610 INFO Save raft meta, path=D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\meta-data, term=5, votedFor=192.168.56.1:7848, cost time=9 ms
+
+2023-11-03 14:15:27,611 INFO Node <naming_persistent_service_v2/192.168.56.1:7848> become leader of group, term=5, conf=192.168.56.1:7848, oldConf=.
+
+2023-11-03 14:15:27,613 INFO -Djraft.recyclers.maxCapacityPerThread: 4096.
+
+2023-11-03 14:15:27,615 WARN RPC server is not started in RaftGroupService.
+
+2023-11-03 14:15:27,615 INFO Start the RaftGroupService successfully.
+
+2023-11-03 14:15:27,624 INFO onLeaderStart: term=5.
+
+2023-11-03 14:15:27,625 INFO The number of active nodes increment to 2.
+
+2023-11-03 14:15:27,699 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 0 to 5, cost 0 ms.
+
+2023-11-03 14:15:27,701 INFO Starts FSMCaller successfully.
+
+2023-11-03 14:15:27,702 INFO Creating new channel to: 192.168.56.1:7848.
+
+2023-11-03 14:15:27,707 INFO Loading snapshot, meta=last_included_index: 4
+last_included_term: 4
+peers: "192.168.56.1:7848"
+.
+
+2023-11-03 14:15:27,715 INFO Node <naming_instance_metadata/192.168.56.1:7848> onSnapshotLoadDone, last_included_index: 4
+last_included_term: 4
+peers: "192.168.56.1:7848"
+
+
+2023-11-03 14:15:27,715 INFO Node <naming_instance_metadata/192.168.56.1:7848> target priority value has changed from: 0, to: -1.
+
+2023-11-03 14:15:27,715 INFO Node <naming_instance_metadata/192.168.56.1:7848> init, term=4, lastLogId=LogId [index=4, term=4], conf=192.168.56.1:7848, oldConf=.
+
+2023-11-03 14:15:27,716 INFO Node <naming_instance_metadata/192.168.56.1:7848> start vote and grant vote self, term=4.
+
+2023-11-03 14:15:27,716 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 5 to 5, cost 0 ms.
+
+2023-11-03 14:15:27,719 WARN Unable to fsync directory D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\meta-data on windows.
+
+2023-11-03 14:15:27,719 INFO Save raft meta, path=D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\meta-data, term=5, votedFor=192.168.56.1:7848, cost time=3 ms
+
+2023-11-03 14:15:27,719 INFO Node <naming_instance_metadata/192.168.56.1:7848> become leader of group, term=5, conf=192.168.56.1:7848, oldConf=.
+
+2023-11-03 14:15:27,719 WARN RPC server is not started in RaftGroupService.
+
+2023-11-03 14:15:27,719 INFO Start the RaftGroupService successfully.
+
+2023-11-03 14:15:27,720 INFO onLeaderStart: term=5.
+
+2023-11-03 14:15:27,723 INFO The number of active nodes increment to 3.
+
+2023-11-03 14:15:27,750 INFO The channel 192.168.56.1:7848 is in state: CONNECTING.
+
+2023-11-03 14:15:27,792 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 0 to 5, cost 1 ms.
+
+2023-11-03 14:15:27,793 INFO Starts FSMCaller successfully.
+
+2023-11-03 14:15:27,798 INFO Loading snapshot, meta=last_included_index: 4
+last_included_term: 4
+peers: "192.168.56.1:7848"
+.
+
+2023-11-03 14:15:27,804 INFO Node <naming_service_metadata/192.168.56.1:7848> onSnapshotLoadDone, last_included_index: 4
+last_included_term: 4
+peers: "192.168.56.1:7848"
+
+
+2023-11-03 14:15:27,805 INFO Node <naming_service_metadata/192.168.56.1:7848> target priority value has changed from: 0, to: -1.
+
+2023-11-03 14:15:27,805 INFO Node <naming_service_metadata/192.168.56.1:7848> init, term=4, lastLogId=LogId [index=4, term=4], conf=192.168.56.1:7848, oldConf=.
+
+2023-11-03 14:15:27,805 INFO Node <naming_service_metadata/192.168.56.1:7848> start vote and grant vote self, term=4.
+
+2023-11-03 14:15:27,806 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 5 to 5, cost 0 ms.
+
+2023-11-03 14:15:27,808 WARN Unable to fsync directory D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\meta-data on windows.
+
+2023-11-03 14:15:27,808 INFO Save raft meta, path=D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\meta-data, term=5, votedFor=192.168.56.1:7848, cost time=2 ms
+
+2023-11-03 14:15:27,808 INFO Node <naming_service_metadata/192.168.56.1:7848> become leader of group, term=5, conf=192.168.56.1:7848, oldConf=.
+
+2023-11-03 14:15:27,808 WARN RPC server is not started in RaftGroupService.
+
+2023-11-03 14:15:27,808 INFO Start the RaftGroupService successfully.
+
+2023-11-03 14:15:27,809 INFO onLeaderStart: term=5.
+
+2023-11-03 14:15:27,912 INFO The channel 192.168.56.1:7848 is in state: READY.
+
+2023-11-03 14:15:27,912 INFO The channel 192.168.56.1:7848 has successfully established.
+
+2023-11-03 14:35:17,032 WARN Unable to fsync directory D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\snapshot\temp on windows.
+
+2023-11-03 14:35:17,032 INFO Deleting snapshot D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\snapshot\snapshot_5.
+
+2023-11-03 14:35:17,032 INFO Renaming D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\snapshot\temp to D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\snapshot\snapshot_5.
+
+2023-11-03 14:35:17,032 WARN Unable to fsync directory D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\snapshot on windows.
+
+2023-11-03 14:35:17,032 INFO Deleting snapshot D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\snapshot\snapshot_4.
+
+2023-11-03 14:35:17,041 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 5 to 5, cost 0 ms.
+
+2023-11-03 14:35:21,608 WARN Unable to fsync directory D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\snapshot\temp on windows.
+
+2023-11-03 14:35:21,608 INFO Deleting snapshot D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\snapshot\snapshot_5.
+
+2023-11-03 14:35:21,608 INFO Renaming D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\snapshot\temp to D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\snapshot\snapshot_5.
+
+2023-11-03 14:35:21,609 WARN Unable to fsync directory D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\snapshot on windows.
+
+2023-11-03 14:35:21,609 INFO Deleting snapshot D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\snapshot\snapshot_4.
+
+2023-11-03 14:35:21,611 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 5 to 5, cost 0 ms.
+
+2023-11-03 14:35:29,214 WARN Unable to fsync directory D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\snapshot\temp on windows.
+
+2023-11-03 14:35:29,214 INFO Deleting snapshot D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\snapshot\snapshot_5.
+
+2023-11-03 14:35:29,214 INFO Renaming D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\snapshot\temp to D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\snapshot\snapshot_5.
+
+2023-11-03 14:35:29,214 WARN Unable to fsync directory D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\snapshot on windows.
+
+2023-11-03 14:35:29,214 INFO Deleting snapshot D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\snapshot\snapshot_4.
+
+2023-11-03 14:35:29,217 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 5 to 5, cost 0 ms.
+
+2023-11-03 15:05:17,005 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 5 to 6, cost 0 ms.
+
+2023-11-03 15:05:21,628 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 5 to 6, cost 0 ms.
+
+2023-11-03 15:05:29,203 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 5 to 6, cost 0 ms.
+
+2023-11-03 15:35:17,012 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 15:35:21,630 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 15:35:29,204 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 16:05:17,027 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 16:05:21,653 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 16:05:29,210 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 16:35:17,039 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 16:35:21,657 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 16:35:29,214 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 17:05:17,036 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 17:05:21,668 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 17:05:29,220 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 17:35:17,050 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 17:35:21,673 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 17:35:29,309 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 19:21:09,930 INFO The channel 192.168.56.1:7848 is in state: IDLE.
+
+2023-11-03 19:21:12,618 INFO The channel 192.168.56.1:7848 is in state: CONNECTING.
+
+2023-11-03 19:21:12,624 INFO The channel 192.168.56.1:7848 is in state: READY.
+
+2023-11-03 19:21:12,624 INFO The channel 192.168.56.1:7848 has successfully established.
+
+2023-11-03 19:21:14,939 INFO Connection disconnected: /192.168.56.1:4331
+
+2023-11-03 19:34:17,712 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 19:34:17,714 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 19:34:17,715 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 20:04:17,724 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 20:04:17,724 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 20:04:17,724 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 20:34:17,739 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 20:34:17,758 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 20:34:17,765 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 21:04:17,741 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 21:04:17,747 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 21:04:17,752 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 21:34:17,748 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_instance_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 21:34:17,749 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_service_metadata\log from log index 6 to 6, cost 0 ms.
+
+2023-11-03 21:34:17,749 INFO Truncated prefix logs in data path: D:\JavaSoftware\nacos-server-2.2.3\nacos\data\protocol\raft\naming_persistent_service_v2\log from log index 6 to 6, cost 1 ms.
+

@@ -1,0 +1,228 @@
+2023-11-07 10:45:06,072 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-11-07 10:45:06,072 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-11-07 10:45:06,073 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-11-07 10:45:06,073 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-11-07 10:45:07,148 INFO Load instance extension handler []
+
+2023-11-07 10:48:02,277 INFO Client connection 1699325282014_127.0.0.1_2957 connect
+
+2023-11-07 10:48:02,337 INFO Client connection 1699325282246_127.0.0.1_2960 connect
+
+2023-11-07 10:48:02,391 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=0}, 1699325282014_127.0.0.1_2957
+
+2023-11-07 10:48:02,465 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=0}, 1699325282246_127.0.0.1_2960
+
+2023-11-07 10:48:04,095 INFO Client connection 1699325284018_127.0.0.1_2990 connect
+
+2023-11-07 10:48:04,213 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=0}, 1699325284018_127.0.0.1_2990
+
+2023-11-07 12:16:25,831 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=1}, 1699325282246_127.0.0.1_2960
+
+2023-11-07 12:16:25,865 INFO Client connection 1699325282246_127.0.0.1_2960 disconnect, remove instances and subscribers
+
+2023-11-07 12:16:42,950 INFO Client connection 1699330602875_127.0.0.1_10350 connect
+
+2023-11-07 12:16:43,070 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=2}, 1699330602875_127.0.0.1_10350
+
+2023-11-07 14:31:50,433 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-11-07 14:31:50,433 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-11-07 14:31:50,434 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-11-07 14:31:50,434 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-11-07 14:31:51,468 INFO Load instance extension handler []
+
+2023-11-07 14:32:40,889 INFO Client connection 1699338760636_127.0.0.1_12777 connect
+
+2023-11-07 14:32:41,011 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=0}, 1699338760636_127.0.0.1_12777
+
+2023-11-07 14:32:41,299 INFO Client connection 1699338761215_127.0.0.1_12780 connect
+
+2023-11-07 14:32:41,418 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=0}, 1699338761215_127.0.0.1_12780
+
+2023-11-07 14:32:42,905 INFO Client connection 1699338762774_127.0.0.1_12809 connect
+
+2023-11-07 14:32:43,031 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=0}, 1699338762774_127.0.0.1_12809
+
+2023-11-07 14:48:27,428 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=1}, 1699338761215_127.0.0.1_12780
+
+2023-11-07 14:48:27,440 INFO Client connection 1699338761215_127.0.0.1_12780 disconnect, remove instances and subscribers
+
+2023-11-07 14:48:51,685 INFO Client connection 1699339731608_127.0.0.1_7186 connect
+
+2023-11-07 14:48:51,810 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=2}, 1699339731608_127.0.0.1_7186
+
+2023-11-07 16:13:11,052 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=3}, 1699339731608_127.0.0.1_7186
+
+2023-11-07 16:13:11,063 INFO Client connection 1699339731608_127.0.0.1_7186 disconnect, remove instances and subscribers
+
+2023-11-07 16:13:28,707 INFO Client connection 1699344808616_127.0.0.1_6761 connect
+
+2023-11-07 16:13:28,825 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=4}, 1699344808616_127.0.0.1_6761
+
+2023-11-07 17:08:00,676 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, 1699338760636_127.0.0.1_12777
+
+2023-11-07 17:08:00,684 INFO Client connection 1699338760636_127.0.0.1_12777 disconnect, remove instances and subscribers
+
+2023-11-07 17:08:14,098 INFO Client connection 1699348093901_127.0.0.1_2245 connect
+
+2023-11-07 17:08:14,217 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=2}, 1699348093901_127.0.0.1_2245
+
+2023-11-07 17:09:58,248 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=3}, 1699348093901_127.0.0.1_2245
+
+2023-11-07 17:09:58,257 INFO Client connection 1699348093901_127.0.0.1_2245 disconnect, remove instances and subscribers
+
+2023-11-07 17:10:10,871 INFO Client connection 1699348210685_127.0.0.1_2327 connect
+
+2023-11-07 17:10:10,989 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=4}, 1699348210685_127.0.0.1_2327
+
+2023-11-07 17:23:40,992 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=5}, 1699348210685_127.0.0.1_2327
+
+2023-11-07 17:23:41,000 INFO Client connection 1699348210685_127.0.0.1_2327 disconnect, remove instances and subscribers
+
+2023-11-07 17:23:53,807 INFO Client connection 1699349033611_127.0.0.1_3301 connect
+
+2023-11-07 17:23:53,925 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=6}, 1699349033611_127.0.0.1_3301
+
+2023-11-07 17:36:34,864 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=1}, 1699338762774_127.0.0.1_12809
+
+2023-11-07 17:36:34,871 INFO Client connection 1699338762774_127.0.0.1_12809 disconnect, remove instances and subscribers
+
+2023-11-07 17:36:49,941 INFO Client connection 1699349809869_127.0.0.1_4192 connect
+
+2023-11-07 17:36:50,056 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=2}, 1699349809869_127.0.0.1_4192
+
+2023-11-07 18:14:15,297 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=5}, 1699344808616_127.0.0.1_6761
+
+2023-11-07 18:14:15,305 INFO Client connection 1699344808616_127.0.0.1_6761 disconnect, remove instances and subscribers
+
+2023-11-07 18:14:40,316 INFO Client connection 1699352080240_127.0.0.1_7157 connect
+
+2023-11-07 18:14:40,433 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=6}, 1699352080240_127.0.0.1_7157
+
+2023-11-07 18:15:45,757 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=7}, 1699352080240_127.0.0.1_7157
+
+2023-11-07 18:15:45,781 INFO Client connection 1699352080240_127.0.0.1_7157 disconnect, remove instances and subscribers
+
+2023-11-07 18:16:08,378 INFO Client connection 1699352168304_127.0.0.1_7294 connect
+
+2023-11-07 18:16:08,503 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=8}, 1699352168304_127.0.0.1_7294
+
+2023-11-07 18:42:20,360 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=9}, 1699352168304_127.0.0.1_7294
+
+2023-11-07 18:42:20,369 INFO Client connection 1699352168304_127.0.0.1_7294 disconnect, remove instances and subscribers
+
+2023-11-07 18:42:42,850 INFO Client connection 1699353762776_127.0.0.1_2418 connect
+
+2023-11-07 18:42:42,978 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=10}, 1699353762776_127.0.0.1_2418
+
+2023-11-07 18:48:15,693 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=11}, 1699353762776_127.0.0.1_2418
+
+2023-11-07 18:48:15,702 INFO Client connection 1699353762776_127.0.0.1_2418 disconnect, remove instances and subscribers
+
+2023-11-07 18:48:38,496 INFO Client connection 1699354118421_127.0.0.1_2782 connect
+
+2023-11-07 18:48:38,612 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=12}, 1699354118421_127.0.0.1_2782
+
+2023-11-07 18:52:05,177 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=13}, 1699354118421_127.0.0.1_2782
+
+2023-11-07 18:52:05,187 INFO Client connection 1699354118421_127.0.0.1_2782 disconnect, remove instances and subscribers
+
+2023-11-07 18:52:28,627 INFO Client connection 1699354348551_127.0.0.1_3131 connect
+
+2023-11-07 18:52:28,743 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=14}, 1699354348551_127.0.0.1_3131
+
+2023-11-07 19:25:17,410 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=15}, 1699354348551_127.0.0.1_3131
+
+2023-11-07 19:25:17,417 INFO Client connection 1699354348551_127.0.0.1_3131 disconnect, remove instances and subscribers
+
+2023-11-07 19:25:32,129 INFO Client connection 1699356332051_127.0.0.1_5995 connect
+
+2023-11-07 19:25:32,244 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=16}, 1699356332051_127.0.0.1_5995
+
+2023-11-07 20:48:00,423 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=17}, 1699356332051_127.0.0.1_5995
+
+2023-11-07 20:48:00,431 INFO Client connection 1699356332051_127.0.0.1_5995 disconnect, remove instances and subscribers
+
+2023-11-07 20:48:00,454 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=7}, 1699349033611_127.0.0.1_3301
+
+2023-11-07 20:48:00,462 INFO Client connection 1699349033611_127.0.0.1_3301 disconnect, remove instances and subscribers
+
+2023-11-07 20:48:02,489 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=3}, 1699349809869_127.0.0.1_4192
+
+2023-11-07 20:48:02,496 INFO Client connection 1699349809869_127.0.0.1_4192 disconnect, remove instances and subscribers
+
+2023-11-07 20:49:24,098 WARN namespace : public, [DEFAULT_GROUP@@spring-cloud-gateway] services are automatically cleaned
+
+2023-11-07 20:49:24,098 WARN namespace : public, [DEFAULT_GROUP@@userService] services are automatically cleaned
+
+2023-11-07 20:49:24,098 WARN namespace : public, [DEFAULT_GROUP@@videoService] services are automatically cleaned
+
+2023-11-07 20:49:33,322 INFO Client connection 1699361373192_127.0.0.1_4548 connect
+
+2023-11-07 20:49:33,440 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=0}, 1699361373192_127.0.0.1_4548
+
+2023-11-07 20:49:38,340 INFO Client connection 1699361378262_127.0.0.1_4587 connect
+
+2023-11-07 20:49:38,459 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=0}, 1699361378262_127.0.0.1_4587
+
+2023-11-07 20:49:41,749 INFO Client connection 1699361381663_127.0.0.1_4649 connect
+
+2023-11-07 20:49:41,867 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=0}, 1699361381663_127.0.0.1_4649
+
+2023-11-07 20:51:26,419 INFO Client connection 1699361381663_127.0.0.1_4649 disconnect, remove instances and subscribers
+
+2023-11-07 20:51:26,679 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=1}, 1699361378262_127.0.0.1_4587
+
+2023-11-07 20:51:26,681 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, 1699361373192_127.0.0.1_4548
+
+2023-11-07 20:51:26,690 INFO Client connection 1699361378262_127.0.0.1_4587 disconnect, remove instances and subscribers
+
+2023-11-07 20:51:26,691 INFO Client connection 1699361373192_127.0.0.1_4548 disconnect, remove instances and subscribers
+
+2023-11-07 21:10:27,559 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-11-07 21:10:27,559 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-11-07 21:10:27,559 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-11-07 21:10:27,559 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-11-07 21:10:28,557 INFO Load instance extension handler []
+
+2023-11-07 21:12:56,369 INFO Client connection 1699362776113_127.0.0.1_6992 connect
+
+2023-11-07 21:12:56,481 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=0}, 1699362776113_127.0.0.1_6992
+
+2023-11-07 21:12:56,822 INFO Client connection 1699362776738_127.0.0.1_6996 connect
+
+2023-11-07 21:12:56,954 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=0}, 1699362776738_127.0.0.1_6996
+
+2023-11-07 21:12:58,841 INFO Client connection 1699362778769_127.0.0.1_7027 connect
+
+2023-11-07 21:12:58,956 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=0}, 1699362778769_127.0.0.1_7027
+
+2023-11-07 21:33:50,284 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='videoService', ephemeral=true, revision=1}, 1699362776738_127.0.0.1_6996
+
+2023-11-07 21:33:50,295 INFO Client connection 1699362776738_127.0.0.1_6996 disconnect, remove instances and subscribers
+
+2023-11-07 21:33:50,311 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='userService', ephemeral=true, revision=1}, 1699362776113_127.0.0.1_6992
+
+2023-11-07 21:33:50,318 INFO Client connection 1699362776113_127.0.0.1_6992 disconnect, remove instances and subscribers
+
+2023-11-07 21:33:52,319 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='spring-cloud-gateway', ephemeral=true, revision=1}, 1699362778769_127.0.0.1_7027
+
+2023-11-07 21:33:52,326 INFO Client connection 1699362778769_127.0.0.1_7027 disconnect, remove instances and subscribers
+
+2023-11-07 21:34:58,495 WARN namespace : public, [DEFAULT_GROUP@@spring-cloud-gateway] services are automatically cleaned
+
+2023-11-07 21:34:58,495 WARN namespace : public, [DEFAULT_GROUP@@userService] services are automatically cleaned
+
+2023-11-07 21:34:58,495 WARN namespace : public, [DEFAULT_GROUP@@videoService] services are automatically cleaned
+
